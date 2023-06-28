@@ -1,0 +1,683 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>《Web应用基础》课程结业报告</title>
+  <link rel="stylesheet" href="https://stackedit.io/style.css" />
+</head>
+
+<body class="stackedit">
+  <div class="stackedit__html"><h1><a id="Web_0"></a>《Web应用基础》课程结业报告</h1>
+<h2><a id="1_2"></a>1.项目概述</h2>
+<p>我喜欢的音乐、电影、风景和城市是我生活中重要的组成部分。我希望能够创建一个个人的静态网页项目，以展示我对这些领域的热爱和兴趣。通过这个项目，我可以将我的喜好展示给他人，并与他们分享我的观点、推荐和体验。同时，这个项目也是我提高前端开发技能的一个机会，让我能够实践HTML、CSS和JavaScript等技术，打造一个美观且具有交互性的网页。</p>
+<h2><a id="2_5"></a>2.设计开发过程</h2>
+<p>下面我将从登录页面到主页面的四个分页面逐个介绍我的设计思路与实现过程，将分页面介绍每个页面具体功能的实现。</p>
+<h3><a id="21_Login_9"></a>2.1 Login（登录页面）</h3>
+<h4><a id="211__11"></a>2.1.1 总体介绍</h4>
+<p>登录页面的设计是一个具有动态效果的玻璃效果登录界面。下面我会逐步解释这个页面的布局样式和实现的功能。</p>
+<h4><a id="212__15"></a>2.1.2 布局与样式</h4>
+<pre><code class="prism language-css"><span class="token selector">section</span> <span class="token punctuation">{</span>
+  <span class="token property">position</span><span class="token punctuation">:</span> relative<span class="token punctuation">;</span>
+  <span class="token property">display</span><span class="token punctuation">:</span> flex<span class="token punctuation">;</span>
+  <span class="token property">justify-content</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span>
+  <span class="token property">align-items</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span>
+  <span class="token property">width</span><span class="token punctuation">:</span> 100%<span class="token punctuation">;</span>
+  <span class="token property">height</span><span class="token punctuation">:</span> 100vh<span class="token punctuation">;</span>
+  <span class="token property">overflow</span><span class="token punctuation">:</span> hidden<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<ul>
+<li>整个页面使用了一个<code>section</code>元素作为容器，并设置了宽度和高度为100vh，占据整个视口的高度。通过设置<code>justify-content: center</code>和<code>align-items: center</code>来使内容在垂直和水平方向上居中显示。</li>
+</ul>
+<pre><code class="prism language-html">  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>section</span><span class="token punctuation">&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>container<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>scene<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+         
+          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>layer<span class="token punctuation">"</span></span> <span class="token attr-name">data-depth-x</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>0.15<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>./assets/lavender.png<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>lavender<span class="token punctuation">"</span></span><span class="token punctuation">/&gt;</span></span>
+          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+    
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>login<span class="token punctuation">"</span></span> <span class="token attr-name">data-depth-x</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>-0.25<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h2</span><span class="token punctuation">&gt;</span></span>登录<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h2</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>inputBox<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>&lt;input type="text" placeholder="直接点击登录即可"<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>inputBox<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>&lt;input type="password" placeholder="直接点击登录即可"<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>inputBox<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>submit<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>登入<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>btn<span class="token punctuation">"</span></span> <span class="token punctuation">/&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>section</span><span class="token punctuation">&gt;</span></span>
+</code></pre>
+<ul>
+<li>在HTML中，<code>section</code>元素内部包含了一个<code>.container</code>元素和一个<code>.login</code>元素。.container元素用于容纳动态效果的背景图层，<code>.login</code>元素则是登录框的容器。</li>
+</ul>
+<pre><code class="prism language-css"><span class="token selector">.container</span> <span class="token punctuation">{</span>
+  <span class="token property">position</span><span class="token punctuation">:</span> absolute<span class="token punctuation">;</span>
+  <span class="token property">left</span><span class="token punctuation">:</span> -10%<span class="token punctuation">;</span>
+  <span class="token property">width</span><span class="token punctuation">:</span> 120%<span class="token punctuation">;</span>
+  <span class="token property">height</span><span class="token punctuation">:</span> 100vh<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>.container元素被设置为绝对定位，并且占据了整个视口的宽度和高度。</p>
+<pre><code class="prism language-css"><span class="token selector">.container #scene .layer</span> <span class="token punctuation">{</span>
+  <span class="token property">position</span><span class="token punctuation">:</span> absolute<span class="token punctuation">;</span>
+  <span class="token property">top</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+  <span class="token property">left</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+  <span class="token property">width</span><span class="token punctuation">:</span> 100%<span class="token punctuation">;</span>
+  <span class="token property">height</span><span class="token punctuation">:</span> 100vh<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">.container .layer img</span> <span class="token punctuation">{</span>
+  <span class="token property">position</span><span class="token punctuation">:</span> absolute<span class="token punctuation">;</span>
+  <span class="token property">bottom</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+  <span class="token property">left</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+  <span class="token property">width</span><span class="token punctuation">:</span> 100%<span class="token punctuation">;</span>
+  <span class="token property">height</span><span class="token punctuation">:</span> 100%<span class="token punctuation">;</span>
+  <span class="token property">object-fit</span><span class="token punctuation">:</span> cover<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<ul>
+<li><code>.container</code>元素内部的<code>#scene</code>元素是用来创建动态效果的容器。</li>
+<li><code>.layer</code>元素是一个图层，通过设置<code>data-depth-x</code>属性来控制其在水平方向上的移动速度。在这个例子中，<code>data-depth-x="0.15"</code>表示该图层会以比其他图层更慢的速度水平移动。</li>
+<li><code>.layer</code>元素内部包含一个<code>img</code>元素，通过设置<code>object-fit: cover</code>来保持图片的比例不变，并且填充满整个图层。</li>
+</ul>
+<pre><code class="prism language-css"><span class="token selector">.login</span> <span class="token punctuation">{</span>
+  <span class="token property">position</span><span class="token punctuation">:</span> relative<span class="token punctuation">;</span>
+  <span class="token property">padding</span><span class="token punctuation">:</span> 60px<span class="token punctuation">;</span>
+  <span class="token property">background</span><span class="token punctuation">:</span> <span class="token function">rgba</span><span class="token punctuation">(</span>255<span class="token punctuation">,</span> 255<span class="token punctuation">,</span> 255<span class="token punctuation">,</span> 0.15<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token property">backdrop-filter</span><span class="token punctuation">:</span> <span class="token function">blur</span><span class="token punctuation">(</span>25px<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token property">border</span><span class="token punctuation">:</span> 1px solid <span class="token function">rgba</span><span class="token punctuation">(</span>255<span class="token punctuation">,</span> 255<span class="token punctuation">,</span> 255<span class="token punctuation">,</span> 0.5<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token property">border-bottom</span><span class="token punctuation">:</span> 1px solid <span class="token function">rgba</span><span class="token punctuation">(</span>255<span class="token punctuation">,</span> 255<span class="token punctuation">,</span> 255<span class="token punctuation">,</span> 0.25<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token property">border-left</span><span class="token punctuation">:</span> 1px solid <span class="token function">rgba</span><span class="token punctuation">(</span>255<span class="token punctuation">,</span> 255<span class="token punctuation">,</span> 255<span class="token punctuation">,</span> 0.25<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token property">border-radius</span><span class="token punctuation">:</span> 20px<span class="token punctuation">;</span>
+  <span class="token property">width</span><span class="token punctuation">:</span> 500px<span class="token punctuation">;</span>
+  <span class="token property">display</span><span class="token punctuation">:</span> flex<span class="token punctuation">;</span>
+  <span class="token property">flex-direction</span><span class="token punctuation">:</span> column<span class="token punctuation">;</span>
+  <span class="token property">gap</span><span class="token punctuation">:</span> 30px<span class="token punctuation">;</span>
+  <span class="token property">box-shadow</span><span class="token punctuation">:</span> 0 25px 50px <span class="token function">rgba</span><span class="token punctuation">(</span>0<span class="token punctuation">,</span> 0<span class="token punctuation">,</span> 0<span class="token punctuation">,</span> 0.1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p><code>.login</code>元素是登录框的容器，它被设置为相对定位，并设置了一些样式属性来实现<em><strong>玻璃效果</strong></em>具体过程如下：</p>
+<ul>
+<li>通过设置背景的颜色和透明度<code>background: rgba(255, 255, 255, 0.15);</code>。使用了RGBA颜色表示法，其中最后一个参数0.15表示透明度为15%、背景模糊和边框等样式属性来实现这个效果。</li>
+<li>通过使用<code>backdrop-filter: blur(25px);</code>。设置了一个模糊半径为25px的模糊效果。</li>
+<li>通过<code>border: 1px solid rgba(255, 255, 255, 0.5);</code>设置了一个宽度为1px、颜色为白色、透明度为50%的实线边框，最终达到玻璃效果。</li>
+</ul>
+<h4><a id="212__105"></a>2.1.2 功能实现</h4>
+<pre><code class="prism language-js">  <span class="token operator">&lt;</span>script src<span class="token operator">=</span><span class="token string">"https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"</span><span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span>script<span class="token operator">&gt;</span>
+      <span class="token keyword">var</span> scene <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">"scene"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">var</span> parallax <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Parallax</span><span class="token punctuation">(</span>scene<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+      <span class="token keyword">const</span> login <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">'.login'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> layers <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">querySelectorAll</span><span class="token punctuation">(</span><span class="token string">'.layer img'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+login<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'mouseenter'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">// 在鼠标进入登录框时修改layer中img的属性或样式</span>
+  layers<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token parameter">layer</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 示例: 修改图片的src属性</span>
+    layer<span class="token punctuation">.</span>src <span class="token operator">=</span> <span class="token string">'./assets/loginchange.png'</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+login<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'mouseleave'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+ 
+    <span class="token comment">// 示例: 还原图片的src属性</span>
+    layers<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token parameter">layer</span><span class="token operator">=&gt;</span><span class="token punctuation">{</span>  layer<span class="token punctuation">.</span>src <span class="token operator">=</span> <span class="token string">'./assets/lavender.png'</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+    
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">"btn"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">"click"</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  window<span class="token punctuation">.</span>location<span class="token punctuation">.</span>href <span class="token operator">=</span> <span class="token string">"index.html"</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">&gt;</span>
+</code></pre>
+<p>在JavaScript部分，Parallax.js库来实现视差效果，当用户滚动页面时，不同的元素以不同的速度移动根据上方<code>data-depth-x</code>属性设置的移动速度，实现一个动态的视差效果。scene 是页面上的一个元素或容器，用于显示视差效果。通过事件监听器实现了一些动态效果。当鼠标进入.login元素时，通过修改图层中<code>img</code>元素的<code>src</code>属性，将图片替换为<code>"./assets/loginchange.png"</code>，实现了登录框上方图层图片的变化效果。当鼠标离开.login元素时，通过还原img元素的src属性，将图片替换为<code>"./assets/lavender.png"</code>，实现了还原的效果。<br>
+当点击登录按钮时，通过JavaScript的<code>window.location.href</code>属性将页面跳转到<code>"index.html"</code>。<br>
+最终效果如下：<br>
+<img src="https://img-blog.csdnimg.cn/img_convert/5221f4951106b68684671999502c066e.png" alt="在这里插入图片描述"></p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/ac770f7257bb414a325ba8cbfaec183e.png" alt="在这里插入图片描述"></p>
+<h3><a id="22_index_145"></a>2.2 index（主页面）</h3>
+<h4><a id="221__147"></a>2.2.1 总体介绍</h4>
+<p>该部分实现了一个具有导航栏跳转功能的导航栏。</p>
+<h4><a id="222__149"></a>2.2.2 布局设计</h4>
+<pre><code class="prism language-html"> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>nav</span><span class="token punctuation">&gt;</span></span>
+       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>javascript:void(0)<span class="token punctuation">"</span></span> <span class="token special-attr"><span class="token attr-name">onclick</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token value javascript language-javascript"><span class="token function">loadPage</span><span class="token punctuation">(</span><span class="token string">'home'</span><span class="token punctuation">)</span></span><span class="token punctuation">"</span></span></span><span class="token punctuation">&gt;</span></span>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>i</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">'</span>bx bxs-book-heart bx-tada<span class="token punctuation">'</span></span> <span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>i</span><span class="token punctuation">&gt;</span></span>
+        喜欢的专辑<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>javascript:void(0)<span class="token punctuation">"</span></span> <span class="token special-attr"><span class="token attr-name">onclick</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token value javascript language-javascript"><span class="token function">loadPage</span><span class="token punctuation">(</span><span class="token string">'about'</span><span class="token punctuation">)</span></span><span class="token punctuation">"</span></span></span><span class="token punctuation">&gt;</span></span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>i</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">'</span>bx bx-video-recording bx-tada<span class="token punctuation">'</span></span> <span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>i</span><span class="token punctuation">&gt;</span></span>喜欢的电影<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">&gt;</span></span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">&gt;</span></span>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>i</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">'</span>bx bxs-cable-car bx-tada<span class="token punctuation">'</span></span> <span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>i</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>javascript:void(0)<span class="token punctuation">"</span></span> <span class="token special-attr"><span class="token attr-name">onclick</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token value javascript language-javascript"><span class="token function">loadPage</span><span class="token punctuation">(</span><span class="token string">'contact'</span><span class="token punctuation">)</span></span><span class="token punctuation">"</span></span></span><span class="token punctuation">&gt;</span></span>喜欢的风景<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">&gt;</span></span>
+          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">&gt;</span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>javascript:void(0)<span class="token punctuation">"</span></span> <span class="token special-attr"><span class="token attr-name">onclick</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token value javascript language-javascript"><span class="token function">loadPage</span><span class="token punctuation">(</span><span class="token string">'food'</span><span class="token punctuation">)</span></span><span class="token punctuation">"</span></span></span><span class="token punctuation">&gt;</span></span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>i</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">'</span>bx bx-video-recording bx-tada<span class="token punctuation">'</span></span> <span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>i</span><span class="token punctuation">&gt;</span></span>喜欢的食品<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">&gt;</span></span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">&gt;</span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">&gt;</span></span>
+              <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>javascript:void(0)<span class="token punctuation">"</span></span> <span class="token special-attr"><span class="token attr-name">onclick</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token value javascript language-javascript"><span class="token function">loadPage</span><span class="token punctuation">(</span><span class="token string">'t'</span><span class="token punctuation">)</span></span><span class="token punctuation">"</span></span></span><span class="token punctuation">&gt;</span></span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>i</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">'</span>bx bx-video-recording bx-tada<span class="token punctuation">'</span></span> <span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>i</span><span class="token punctuation">&gt;</span></span>作业报告<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">&gt;</span></span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">&gt;</span></span>
+    
+          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>nav</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>mainContent<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>object</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>pageContent<span class="token punctuation">"</span></span> <span class="token attr-name">data</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>taylor.html<span class="token punctuation">"</span></span> <span class="token attr-name">width</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>100%<span class="token punctuation">"</span></span> <span class="token attr-name">height</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>100%<span class="token punctuation">"</span></span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>text/html<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>object</span><span class="token punctuation">&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+</code></pre>
+<p>使用<code>&lt;nav&gt;</code> 标签定义导航栏，包含一组导航选项。每个导航选项由一个<code> &lt;li&gt;</code> 元素表示。每个导航选项都包含一个带有图标和文本的<code>&lt;a&gt;</code>元素并添加点击事件，用于跳转到相应的页面。<code>&lt;div id="mainContent"&gt;</code> 标签定义了主内容区域，用于显示加载的页面内容。<br>
+<code>&lt;object&gt; </code>元素用于在 <code>&lt;div id="mainContent"&gt; </code>中加载不同的页面。</p>
+<pre><code class="prism language-css">        <span class="token selector">*</span> <span class="token punctuation">{</span>
+    <span class="token property">margin</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+    <span class="token property">padding</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+    <span class="token property">box-sizing</span><span class="token punctuation">:</span> border-box<span class="token punctuation">;</span>
+ 
+<span class="token punctuation">}</span>
+<span class="token selector">nav li</span><span class="token punctuation">{</span>
+    <span class="token property">position</span><span class="token punctuation">:</span> relative<span class="token punctuation">;</span>
+      <span class="token property">margin</span><span class="token punctuation">:</span> .5rem 0<span class="token punctuation">;</span>
+      <span class="token property">padding</span><span class="token punctuation">:</span> 17px<span class="token punctuation">;</span>  
+<span class="token punctuation">}</span>
+<span class="token selector">nav li a</span> <span class="token punctuation">{</span>
+        <span class="token property">font-size</span><span class="token punctuation">:</span> 16px<span class="token punctuation">;</span>
+         <span class="token property">padding</span><span class="token punctuation">:</span> 8px<span class="token punctuation">;</span> <span class="token comment">/*增大hover效果的面积 */</span>
+    <span class="token punctuation">}</span>
+
+<span class="token selector">nav</span> <span class="token punctuation">{</span>
+    <span class="token property">height</span><span class="token punctuation">:</span> 50px<span class="token punctuation">;</span> <span class="token comment">/* 设置导航栏的高度 */</span>
+    <span class="token property">background-color</span><span class="token punctuation">:</span> #333<span class="token punctuation">;</span>
+    <span class="token property">color</span><span class="token punctuation">:</span> #fff<span class="token punctuation">;</span>
+    <span class="token property">padding</span><span class="token punctuation">:</span> 10px<span class="token punctuation">;</span>
+    <span class="token property">display</span><span class="token punctuation">:</span> flex<span class="token punctuation">;</span>
+ <span class="token property">justify-content</span><span class="token punctuation">:</span> space-between<span class="token punctuation">;</span>
+     <span class="token property">align-items</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span><span class="token comment">/*选项都进行垂直方向的居中 */</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<ul>
+<li>选择器用于将所有元素的 <code>margin </code>和 <code>padding</code> 设置为 0，并将 <code>box-sizing</code> 设置为 <code>border-box</code>，属于每个页面样式的初始化</li>
+</ul>
+<ul>
+<li><code>nav li</code> 选择器用于设置导航栏中每个选项的样式，包括相对定位、边距和内边距。</li>
+<li><code>nav li a</code> 选择器用于设置导航栏中每个选项的链接样式，包括字体大小、内边距和过渡效果。</li>
+<li><code>nav</code> 选择器用于设置导航栏的样式,<code> justify-content: space-between;</code>实现了每个选项的分散均匀分布  <code> align-items: center;</code>则实现了每个选项中文字的垂直方向居中</li>
+</ul>
+<p>图标的动态效果则是在网站：<code>https://boxicons.com/</code>中选择的动态图标：<br>
+<img src="https://img-blog.csdnimg.cn/img_convert/5bbe70226e30a9bf9990b5bbdbfb6e34.png" alt="在这里插入图片描述"></p>
+<h4><a id="223__206"></a>2.2.3 功能实现</h4>
+<pre><code class="prism language-js">  <span class="token keyword">function</span> <span class="token function">loadPage</span><span class="token punctuation">(</span><span class="token parameter">page</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">var</span> pageContent <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'pageContent'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>page <span class="token operator">===</span> <span class="token string">'home'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        pageContent<span class="token punctuation">.</span>data <span class="token operator">=</span> <span class="token string">'taylor.html'</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>page <span class="token operator">===</span> <span class="token string">'about'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        pageContent<span class="token punctuation">.</span>data <span class="token operator">=</span> <span class="token string">'Movies.html'</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>page <span class="token operator">===</span> <span class="token string">'contact'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        pageContent<span class="token punctuation">.</span>data <span class="token operator">=</span> <span class="token string">'Views.html'</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+      <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>page <span class="token operator">===</span> <span class="token string">'food'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        pageContent<span class="token punctuation">.</span>data <span class="token operator">=</span> <span class="token string">'food.html'</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+</code></pre>
+<p>设计<code>loadPage(page)</code> 函数用于根据传入的页面名称加载相应的页面内容。<br>
+当点击导航选项时，通过调用<code>loadPage(page)</code>函数，将相应页面的文件路径赋值给 <code>&lt;object&gt; </code>元素的 <code>data</code> 属性，以在主内容区域中显示该页面的内容。</p>
+<h3><a id="23__227"></a>2.3 喜欢的专辑页面</h3>
+<h4><a id="231__228"></a>2.3.1 总体介绍</h4>
+<p>该页面展示了我最喜爱的9张专辑，并实现了一个比较炫酷的过渡效果。</p>
+<h4><a id="232__231"></a>2.3.2 布局样式</h4>
+<pre><code class="prism language-html"> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>card-container<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>card<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>circle<span class="token punctuation">"</span></span> <span class="token special-attr"><span class="token attr-name">style</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token value css language-css"><span class="token property">--clr</span><span class="token punctuation">:</span>#f6c915</span><span class="token punctuation">"</span></span></span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>./assets/Taylor-Swift-Logo.png<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>logo<span class="token punctuation">"</span></span>  <span class="token special-attr"><span class="token attr-name">style</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token value css language-css"><span class="token property">width</span><span class="token punctuation">:</span> 300px<span class="token punctuation">;</span> <span class="token property">height</span><span class="token punctuation">:</span> auto<span class="token punctuation">;</span></span><span class="token punctuation">"</span></span></span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>content<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h2</span><span class="token punctuation">&gt;</span></span>Fearless<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h2</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">&gt;</span></span>❤️Love Story<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span><span class="token punctuation">&gt;</span></span>
+          ❤️You belong with me<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span><span class="token punctuation">&gt;</span></span>
+          ❤️Fifteen<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
+         <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">herf</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>#<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>无畏<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>./assets/taylor.png<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>product_img<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+   
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+
+    ......
+</code></pre>
+<p>定义了一个卡片容器，包含一个圆形元素、内容元素和图像。这是整个页面的核心部分。</p>
+<pre><code class="prism language-css"><span class="token selector">*</span> <span class="token punctuation">{</span>
+    <span class="token property">margin</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+    <span class="token property">padding</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+    <span class="token property">box-sizing</span><span class="token punctuation">:</span> border-box<span class="token punctuation">;</span>
+    <span class="token property">font-family</span><span class="token punctuation">:</span> <span class="token string">"Poppins"</span><span class="token punctuation">,</span> sans-serif<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token selector">.card-container</span> <span class="token punctuation">{</span>
+    <span class="token property">display</span><span class="token punctuation">:</span> flex<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+ 
+  <span class="token selector">body</span><span class="token punctuation">{</span>
+    <span class="token property">justify-content</span><span class="token punctuation">:</span>center<span class="token punctuation">;</span>
+    <span class="token property">align-items</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span>
+    <span class="token property">min-height</span><span class="token punctuation">:</span>100vh<span class="token punctuation">;</span>
+    <span class="token property">background-color</span><span class="token punctuation">:</span> black<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+</code></pre>
+<p><code>card-container</code>采用弹性布局，使得每个卡片横着排列，<code>body</code>的样式使得占满整个视口，且元素横纵居中。</p>
+<h4><a id="_272"></a>过渡效果的实现</h4>
+<p>本部分过渡效果的实现整体思路是，先在卡片中填入文字并将其布局居中，后用圆形元素将其覆盖，而当鼠标移动到卡片上时圆形元素内的图标会瞬间消失，再衔接上卡片和图片的hover效果，以实现一个绚丽的过渡。具体实现过程如下：</p>
+<p>1、卡片hover效果</p>
+<pre><code class="prism language-css"><span class="token selector">.card:hover</span> <span class="token punctuation">{</span>
+  <span class="token property">width</span><span class="token punctuation">:</span> 600px<span class="token punctuation">;</span>
+  <span class="token property">transition-delay</span><span class="token punctuation">:</span> 0.5s<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<ul>
+<li>当鼠标悬停在卡片上时，卡片的宽度会从初始的310px过渡到600px。transition-delay属性指定了过渡效果延迟0.5秒触发，即在悬停0.5秒后开始过渡。</li>
+</ul>
+<p>2、圆形背景过渡</p>
+<pre><code class="prism language-css">  <span class="token selector">.card .circle::before</span><span class="token punctuation">{</span>
+    <span class="token property">content</span><span class="token punctuation">:</span><span class="token string">''</span><span class="token punctuation">;</span>
+    <span class="token property">position</span><span class="token punctuation">:</span> absolute<span class="token punctuation">;</span>
+    <span class="token property">top</span><span class="token punctuation">:</span>0<span class="token punctuation">;</span>
+    <span class="token property">left</span><span class="token punctuation">:</span>0<span class="token punctuation">;</span>
+    <span class="token property">border-radius</span><span class="token punctuation">:</span>50%<span class="token punctuation">;</span>
+    <span class="token property">width</span><span class="token punctuation">:</span>350px<span class="token punctuation">;</span>
+    <span class="token property">height</span><span class="token punctuation">:</span>350px<span class="token punctuation">;</span>
+    <span class="token property">background</span><span class="token punctuation">:</span> #191919<span class="token punctuation">;</span>
+    <span class="token property">border</span><span class="token punctuation">:</span>8px solid <span class="token function">var</span><span class="token punctuation">(</span>--clr<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token property">filter</span><span class="token punctuation">:</span><span class="token function">drop-shadow</span><span class="token punctuation">(</span>0 0 10px <span class="token function">var</span><span class="token punctuation">(</span>--clr<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token function">drop-shadow</span><span class="token punctuation">(</span>0 0 60px <span class="token function">var</span><span class="token punctuation">(</span>--clr<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token property">transition</span><span class="token punctuation">:</span> 0.5s<span class="token punctuation">,</span>background0.5s<span class="token punctuation">;</span>
+    <span class="token property">transition-delay</span><span class="token punctuation">:</span>0.75s<span class="token punctuation">,</span>1s<span class="token punctuation">;</span>
+
+  <span class="token punctuation">}</span>
+  <span class="token selector">.card:hover .circle::before</span> <span class="token punctuation">{</span>
+  <span class="token property">width</span><span class="token punctuation">:</span> 100%<span class="token punctuation">;</span>
+  <span class="token property">height</span><span class="token punctuation">:</span> 100%<span class="token punctuation">;</span>
+  <span class="token property">border-radius</span><span class="token punctuation">:</span> 20px<span class="token punctuation">;</span>
+  <span class="token property">background</span><span class="token punctuation">:</span> <span class="token function">var</span><span class="token punctuation">(</span>--clr<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token property">transition-delay</span><span class="token punctuation">:</span> 0.5s<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+</code></pre>
+<p>圆形元素的背景过渡效果由<code>::before</code>伪元素控制。当鼠标悬停在卡片上时，<code>::before</code>伪元素的宽度和高度会从350px过渡到100%（相当于圆形元素的宽度和高度）且圆角减低成<code>20px</code>，这样做是为了把card部分覆盖掉。背景色从初始的黑色过渡到定义的颜色<code>--clr</code>（在html中的style里设置）。过渡效果延迟0.75秒开始，背景颜色的过渡延迟1秒开始，这样的先后次序更有层次感</p>
+<p>3、圆形内图标过渡</p>
+<pre><code class="prism language-css"><span class="token selector">.card:hover .circle .logo</span> <span class="token punctuation">{</span>
+  <span class="token property">transform</span><span class="token punctuation">:</span> <span class="token function">scale</span><span class="token punctuation">(</span>0<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token property">transition-delay</span><span class="token punctuation">:</span> 0s<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>当鼠标悬停在卡片上时，圆形元素内的图标会从初始的原始大小（1倍）过渡到scale(0)，即消失，过渡效果立即开始。</p>
+<p>4、图像的过渡</p>
+<pre><code class="prism language-css"><span class="token selector">.card .img</span><span class="token punctuation">{</span>
+  <span class="token property">position</span><span class="token punctuation">:</span> absolute<span class="token punctuation">;</span>
+  <span class="token property">top</span><span class="token punctuation">:</span> 50%<span class="token punctuation">;</span>
+  <span class="token property">left</span><span class="token punctuation">:</span> 50%<span class="token punctuation">;</span>
+  <span class="token property">transform</span><span class="token punctuation">:</span> <span class="token function">translate</span><span class="token punctuation">(</span>-50%<span class="token punctuation">,</span>-50%<span class="token punctuation">)</span><span class="token function">scale</span><span class="token punctuation">(</span>0<span class="token punctuation">)</span> <span class="token function">rotate</span><span class="token punctuation">(</span>315deg<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token property">height</span><span class="token punctuation">:</span> 270px<span class="token punctuation">;</span>
+  <span class="token property">transition</span><span class="token punctuation">:</span> 0.5s ease-in-out<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">.card:hover .img</span><span class="token punctuation">{</span>
+  <span class="token property">transition-delay</span><span class="token punctuation">:</span> 0.75s<span class="token punctuation">;</span>
+  <span class="token property">top</span><span class="token punctuation">:</span>50%<span class="token punctuation">;</span>
+  <span class="token property">left</span><span class="token punctuation">:</span> 72%<span class="token punctuation">;</span>
+  <span class="token property">height</span><span class="token punctuation">:</span> 500px<span class="token punctuation">;</span>
+  <span class="token property">transform</span><span class="token punctuation">:</span> <span class="token function">translate</span><span class="token punctuation">(</span>-50%<span class="token punctuation">,</span>-50%<span class="token punctuation">)</span> <span class="token function">scale</span><span class="token punctuation">(</span>1<span class="token punctuation">)</span> <span class="token function">rotate</span><span class="token punctuation">(</span>8deg<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>图像在卡片中的位置和大小发生过渡。当鼠标悬停在卡片上时，图像会从初始的<code>scale(0)</code>过渡到<code>scale(1)</code>，即从不可见到可见状态。同时，图像的位置会从初始的垂直和水平居中过渡到垂直居中、水平偏右的位置,这样做为了不挡到文字内容。过渡效果延迟0.75秒开始。</p>
+<p>5、内容的过渡</p>
+<pre><code class="prism language-css"><span class="token selector">.card .content</span> <span class="token punctuation">{</span>
+  <span class="token comment">/* ... */</span>
+  <span class="token property">opacity</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+  <span class="token comment">/* ... */</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">.card:hover .content</span> <span class="token punctuation">{</span>
+  <span class="token comment">/* ... */</span>
+  <span class="token property">opacity</span><span class="token punctuation">:</span> 1<span class="token punctuation">;</span>
+  <span class="token property">visibility</span><span class="token punctuation">:</span> visible<span class="token punctuation">;</span>
+  <span class="token property">left</span><span class="token punctuation">:</span> 20px<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+</code></pre>
+<p>当鼠标悬停在卡片上时，内容元素的透明度<code>opacity</code>从初始的0过渡到1，即从完全透明到完全可见。内容元素的位置从初始的<code>left: 20%</code>过渡到<code>left: 20px</code>，即向左移动。过渡效果延迟0.75秒开始即与图片的出现同步了。<br>
+最终效果如下：</p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/71c0056bc9de69c131aa7f42689c15dd.png" alt="在这里插入图片描述"></p>
+<h3><a id="24__364"></a>2.4 喜爱的电影页面</h3>
+<h4><a id="241__365"></a>2.4.1 总体介绍</h4>
+<p>该页面展示了我喜爱的电影</p>
+<h4><a id="242__367"></a>2.4.2 布局样式</h4>
+<pre><code class="prism language-html">  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>header</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>container<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span><span class="token punctuation">&gt;</span></span>My Favorite Movies<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>header</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>main</span><span class="token punctuation">&gt;</span></span>
+        
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>banner<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>slider<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+                  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>/assets/The_Boys.png<span class="token punctuation">"</span></span> <span class="token attr-name">alt</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Image 1<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+                  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>/assets/jsc.jpg<span class="token punctuation">"</span></span> <span class="token attr-name">alt</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Image 2<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+                  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>/assets/made.png<span class="token punctuation">"</span></span> <span class="token attr-name">alt</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Image 3<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+                  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>/assets/Amsterdam.jpg<span class="token punctuation">"</span></span> <span class="token attr-name">alt</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Image 4<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+                  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>/assets/la-la-land.jpg<span class="token punctuation">"</span></span> <span class="token attr-name">alt</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Image 5<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+              <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+
+        
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>section</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>movies<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>container<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h2</span><span class="token punctuation">&gt;</span></span>My Baby<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h2</span><span class="token punctuation">&gt;</span></span>
+                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>movie<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>./assets/LALALAND.jpg<span class="token punctuation">"</span></span> <span class="token attr-name">alt</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h3</span><span class="token punctuation">&gt;</span></span>Movie1<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h3</span><span class="token punctuation">&gt;</span></span>
+                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">herf</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>#<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>LALALAND<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">&gt;</span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+           /*....*/
+           
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+          
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>section</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>main</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>footer</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>container<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">&gt;</span></span><span class="token entity named-entity" title="©">&amp;copy;</span> 2023 movie web<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>footer</span><span class="token punctuation">&gt;</span></span>
+</code></pre>
+<p>整个页面被分为了三个部分，从上到下展示标题、轮播图、具体电影卡片。</p>
+<pre><code class="prism language-css"><span class="token selector">#movies .movie</span><span class="token punctuation">{</span>
+    <span class="token property">display</span><span class="token punctuation">:</span> inline-block<span class="token punctuation">;</span>
+    <span class="token property">margin-right</span><span class="token punctuation">:</span> 20px<span class="token punctuation">;</span>
+    <span class="token property">margin-top</span><span class="token punctuation">:</span> 20px<span class="token punctuation">;</span>
+    <span class="token property">width</span><span class="token punctuation">:</span> 200px<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">#movies .movie img</span><span class="token punctuation">{</span>
+    <span class="token property">width</span><span class="token punctuation">:</span> 200px<span class="token punctuation">;</span>
+    <span class="token property">height</span><span class="token punctuation">:</span> 300px<span class="token punctuation">;</span>
+    <span class="token property">border-radius</span><span class="token punctuation">:</span> 5px<span class="token punctuation">;</span>
+    <span class="token property">object-fit</span><span class="token punctuation">:</span> cover<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">#movies .movie img:hover</span><span class="token punctuation">{</span>
+    <span class="token property">transition</span><span class="token punctuation">:</span> .25s ease-in-out<span class="token punctuation">;</span>
+    <span class="token property">transform</span><span class="token punctuation">:</span> <span class="token function">scale</span><span class="token punctuation">(</span>1.1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+</code></pre>
+<p>电影项将以行内块元素的方式水平排列显示，每个电影项之间有 20px 的水平和垂直间距。电影海报图像的大小为 200px * 300px，显示为圆角，并在鼠标悬停时以缓慢的过渡效果放大 1.1 倍。</p>
+<ul>
+<li>
+<p><code>#movies .movie</code> 选择器设置电影项的样式为内联块元素（<code>display: inline-block</code>），这样电影项会水平排列，并保持块元素的特性。设置右外边距为 20px 和上外边距为 20px，为电影项之间创建一定的间距。</p>
+</li>
+<li>
+<p>设置<code>#movies .movie img</code> 选择器使得电影海报图像的样式使用 <code>object-fit: cover</code> 属性确保图像可以等比例缩放并<em><strong>填充整个图像框</strong></em>。</p>
+</li>
+<li>
+<p><code>#movies .movie img:hover</code> 鼠标悬停在电影海报图像上时的效果。使用了过渡效果 <code>transition</code>，过渡时间为 0.25s，过渡速度为缓入缓出（<code>ease-in-out</code>）。</p>
+</li>
+<li>
+<p>通过 <code>transform</code> 属性的 <code>scale(1.1)</code> 缩放图像大小，使图像放大 1.1 倍，实现了悬停放大的效果。</p>
+</li>
+</ul>
+<h4><a id="243__435"></a>2.4.3 轮播图实现</h4>
+<pre><code class="prism language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>banner<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>slider<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>/assets/The_Boys.png<span class="token punctuation">"</span></span> <span class="token attr-name">alt</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Image 1<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>/assets/jsc.jpg<span class="token punctuation">"</span></span> <span class="token attr-name">alt</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Image 2<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>/assets/made.png<span class="token punctuation">"</span></span> <span class="token attr-name">alt</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Image 3<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>/assets/Amsterdam.jpg<span class="token punctuation">"</span></span> <span class="token attr-name">alt</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Image 4<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>/assets/la-la-land.jpg<span class="token punctuation">"</span></span> <span class="token attr-name">alt</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Image 5<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+
+</code></pre>
+<p>在HTML中，创建了一个包含轮播图的容器，使用id="banner"来标识该容器。轮播图的图片被包裹在具有class="slider"的<code>&lt;div&gt;</code>元素中，并使用<code>&lt;img&gt;</code>标签添加了多个图片，每个图片都有一个src属性指向不同的图片路径，以及一个alt属性用于图像无法加载时的替代文本。</p>
+<pre><code class="prism language-js">document<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'DOMContentLoaded'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token function">showImage</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">setInterval</span><span class="token punctuation">(</span>nextImage<span class="token punctuation">,</span> <span class="token number">3000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+</code></pre>
+<p>在JavaScript中，通过监听<code>DOMContentLoaded</code>事件来确保<code>DOM</code>已完全加载后执行代码。在事件处理程序中，首先调用<code>showImage(0)</code>来显示第一张图片，然后使用<code>setInterval</code>函数设置一个定时器，每隔3秒调用<code>nextImage</code>函数，实现自动切换图片的效果，这个过程实现的是刚进入页面显示图片的功能。</p>
+<pre><code class="prism language-js"><span class="token keyword">const</span> slider <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">'.slider'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> images <span class="token operator">=</span> slider<span class="token punctuation">.</span><span class="token function">getElementsByTagName</span><span class="token punctuation">(</span><span class="token string">'img'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> currentIndex <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+
+<span class="token keyword">function</span> <span class="token function">showImage</span><span class="token punctuation">(</span><span class="token parameter">index</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> images<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    images<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>classList<span class="token punctuation">.</span><span class="token function">remove</span><span class="token punctuation">(</span><span class="token string">'active'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  images<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token punctuation">.</span>classList<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">'active'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function">nextImage</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  currentIndex<span class="token operator">++</span><span class="token punctuation">;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>currentIndex <span class="token operator">&gt;=</span> images<span class="token punctuation">.</span>length<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    currentIndex <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token function">showImage</span><span class="token punctuation">(</span>currentIndex<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token function">setInterval</span><span class="token punctuation">(</span>nextImage<span class="token punctuation">,</span> <span class="token number">3000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+</code></pre>
+<p>使用<code>querySelector</code>选择器获取具有<code>class="slider"</code>的容器元素，并将其赋值给变量<code>slider</code>。然后，使用<code>slider.getElementsByTagName('img')</code>获取所有图片元素，并将其赋值给变量images。</p>
+<p>接着定义两个函数：<code>showImage</code>和<code>nextImage</code>。<code>showImage</code>函数用于显示指定索引的图片，遍历所有图片元素，并为当前索引的图片添加<code>active</code>类，同时移除其他图片的<code>active</code>类，从而控制显示当前图片。<code>nextImage</code>函数用于切换到下一张图片，它通过递增<code>currentIndex</code>变量实现，如果<code>currentIndex</code>超出了图片数组的长度，将其重置为0，然后调用showImage函数显示对应索引的图片。</p>
+<p>最后，使用<code>setInterval</code>函数每隔3秒调用一次<code>nextImage</code>函数，实现自动切换图片的效果。</p>
+<p>通过上述代码，实现了一个简单的轮播图功能。</p>
+<h3><a id="25__490"></a>2.5 喜欢的风景</h3>
+<h4><a id="251__491"></a>2.5.1 滚动页面动画实现</h4>
+<pre><code class="prism language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>section</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>parallax<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>./assets/hill12.jpg<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>hill1<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>hill3.png<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>hill3<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>./assets/and.png<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>hill4<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>./assets/and2.png<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>hill5<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h2</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>text<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h2</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>leaf.png<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>leaf<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+        <span class="token comment">&lt;!-- &lt;img src="plant.png" id="plant"&gt; --&gt;</span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>section</span><span class="token punctuation">&gt;</span></span>
+</code></pre>
+<pre><code class="prism language-js"><span class="token keyword">let</span> text <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'text'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> leaf <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'leaf'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> hill1 <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'hill1'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> hill4 <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'hill4'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> hill5 <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'hill5'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+window<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'scroll'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token keyword">let</span> value <span class="token operator">=</span> window<span class="token punctuation">.</span>scrollY<span class="token punctuation">;</span>
+
+    text<span class="token punctuation">.</span>style<span class="token punctuation">.</span>marginTop <span class="token operator">=</span> value <span class="token operator">*</span> <span class="token number">1.5</span> <span class="token operator">+</span> <span class="token string">'px'</span><span class="token punctuation">;</span>
+    leaf<span class="token punctuation">.</span>style<span class="token punctuation">.</span>top <span class="token operator">=</span> value <span class="token operator">*</span> <span class="token operator">-</span><span class="token number">1.5</span> <span class="token operator">+</span> <span class="token string">'px'</span><span class="token punctuation">;</span>
+    leaf<span class="token punctuation">.</span>style<span class="token punctuation">.</span>left <span class="token operator">=</span> value <span class="token operator">*</span> <span class="token number">1.5</span> <span class="token operator">+</span> <span class="token string">'px'</span><span class="token punctuation">;</span>
+    hill5<span class="token punctuation">.</span>style<span class="token punctuation">.</span>left <span class="token operator">=</span> value <span class="token operator">*</span> <span class="token number">1.5</span> <span class="token operator">+</span> <span class="token string">'px'</span><span class="token punctuation">;</span>
+    hill4<span class="token punctuation">.</span>style<span class="token punctuation">.</span>left <span class="token operator">=</span> value <span class="token operator">*</span> <span class="token operator">-</span><span class="token number">1.5</span> <span class="token operator">+</span> <span class="token string">'px'</span><span class="token punctuation">;</span>
+    hill1<span class="token punctuation">.</span>style<span class="token punctuation">.</span>top <span class="token operator">=</span> value <span class="token operator">*</span> <span class="token number">0.5</span> <span class="token operator">+</span> <span class="token string">'px'</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p>思路在于利用滚动事件和元素的样式修改来实现动态效果。通过适当调整样式属性的变化速率和方向，实现不同元素在滚动过程中以不同速度和方向移动，从而创造出更加生动的滚动效果。</p>
+<p>通过<code>document.getElementById</code>方法获取了具有相应id的元素，并将它们分别赋值给变量<code>text</code>、<code>leaf</code>、<code>hill1</code>、<code>hill4</code>和<code>hill5</code></p>
+<p>在窗口上添加了一个<code>scroll</code>事件监听器。每当用户滚动页面时，触发该事件处理函数。在处理函数中，首先通过<code>window.scrollY</code>·获取当前滚动的垂直距离，并将其赋值给变量value。</p>
+<p>然后，通过修改各元素的样式，根据value的值来实现滚动效果。具体来说：</p>
+<p>text.style.marginTop = value * 1.5 + ‘px’;：根据滚动距离调整text元素的<strong>顶部边距</strong>，以实现<strong>向下移动</strong>的效果。<br>
+leaf.style.top = value * -1.5 + ‘px’;：根据滚动距离调整leaf元素的<strong>顶部</strong>位置，以实现<strong>向上移动</strong>的效果。<br>
+leaf.style.left = value * 1.5 + ‘px’;：根据滚动距离调整leaf元素的<strong>左侧</strong>位置，以实现<strong>向右移动</strong>的效果。<br>
+hill5.style.left = value * 1.5 + ‘px’;：根据滚动距离调整hill5元素的<strong>左侧位置</strong>，以实现<strong>向右移动</strong>的效果。<br>
+hill4.style.left = value * -1.5 + ‘px’;：根据滚动距离调整hill4元素的<strong>左侧位置</strong>，以实现<strong>向左移动</strong>的效果。<br>
+hill1.style.top = value * 0.5 + ‘px’;：根据滚动距离调整hill1元素的<strong>顶部位置</strong>，以实现<strong>向下移动</strong>的效果。<br>
+通过改变元素的样式属性，随着滚动事件的触发，元素将相应地移动，从而产生视差效果。<br>
+最终效果图如下：<br>
+<img src="https://img-blog.csdnimg.cn/img_convert/01924f8c2bc4cd11a72cf4fc59d22650.png" alt="在这里插入图片描述"></p>
+<h3><a id="26__541"></a>2.6 喜欢的城市页面</h3>
+<h4><a id="261__543"></a>2.6.1 固定侧边栏</h4>
+<pre><code class="prism language-html">	<span class="token comment">&lt;!-- 滚动监听的固定侧边栏 --&gt;</span>
+		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>slider-bar<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>slider-bar<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+			<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ul</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>navbar-nav mr-auto <span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+				<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>nav-item mx-lg-4<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>#introduce1<span class="token punctuation">"</span></span>
+						<span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>nav-link active<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>西安简介<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">&gt;</span></span>
+				<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>nav-item mx-lg-4<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>#introduce2<span class="token punctuation">"</span></span>
+						<span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>nav-link<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>西安美食<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">&gt;</span></span>
+				<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>nav-item mx-lg-4<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>#introduce3<span class="token punctuation">"</span></span>
+						<span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>nav-link<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>西安风景<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">&gt;</span></span>
+				<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>nav-item mx-lg-4<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>#introduce4<span class="token punctuation">"</span></span>
+						<span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>nav-link<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>西安服饰<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">&gt;</span></span>
+			<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ul</span><span class="token punctuation">&gt;</span></span>
+		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+</code></pre>
+<pre><code class="prism language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>row py-5 border-bottom<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>introduce1<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+				<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>col-md-4<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+					<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>img/xian3.jpg<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>w-100<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+				<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+				<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>col-md-8<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+					&lt;h1西安简介<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">&gt;</span></span>
+					<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>text-secondary<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token entity named-entity" title="&nbsp;">&amp;nbsp;</span><span class="token entity named-entity" title="&nbsp;">&amp;nbsp;</span><span class="token entity named-entity" title="&nbsp;">&amp;nbsp;</span><span class="token entity named-entity" title="&nbsp;">&amp;nbsp;</span><span class="token entity named-entity" title="&nbsp;">&amp;nbsp;</span><span class="token entity named-entity" title="&nbsp;">&amp;nbsp;</span><span class="token entity named-entity" title="&nbsp;">&amp;nbsp;</span><span class="token entity named-entity" title="&nbsp;">&amp;nbsp;</span>西安是中国历史上的重要古都之一，拥有悠久而丰富的历史背景。以下是一个简单的西安历史简介：
+
+						西安，古称长安，位于中国陕西省中部。作为中国历史上最早的首都之一，西安拥有超过3100年的历史。在漫长的历史长河中，西安扮演了重要的角色，见证了多个王朝的兴衰和社会变革的发展。
+						
+						西安最早的历史可以追溯到公元前11世纪的周朝时期，当时它是西周王朝的首都。随后，西安成为了秦朝的首都，始皇帝秦始皇在这里统一了中国并建立了中国的第一个封建王朝。秦始皇兵马俑的发现也让西安成为世界著名的考古遗址之一。
+					<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
+					
+				<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+			<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+
+</code></pre>
+<p>这段代码实现了一个滚动监听的固定侧边栏。具体功能如下：</p>
+<ol>
+<li>
+<p>需要先固定的侧边栏，其父元素具有 <code>slider-bar</code> 类名，其 id 为 <code>slider-bar</code>。</p>
+</li>
+<li>
+<p>侧边栏中有一个无序列表，具有不同的链接和文本内容<code>&lt;a href="#introduce1"  					class="nav-link active"&gt;西安简介&lt;/a&gt;</code>。</p>
+</li>
+<li>
+<p>页面上有一个具有 <code>introduce1</code> id 的元素，就是用于前面的链接实现页面内内容区域的跳转。效果如下：<br>
+<img src="https://img-blog.csdnimg.cn/img_convert/a9c0aabaa18fde3cb61717e0943413d4.png" alt="在这里插入图片描述"></p>
+</li>
+<li>
+<p><code>introduce1</code> 元素包含两个子元素，分别是一个占据四分之一宽度的图片和一个占据四分之三宽度的文本区域。效果如下：<br>
+<img src="https://img-blog.csdnimg.cn/img_convert/a36348fe10eb1b02a85ed38d15dfeb8c.png" alt="在这里插入图片描述"></p>
+</li>
+</ol>
+<p>效果是在页面上创建一个固定的侧边栏，并且在滚动页面时，侧边栏项的样式会根据当前所在的部分而变化，以提供导航和视觉提示。</p>
+<h2><a id="3_589"></a>3.问题解决</h2>
+<h3><a id="31__590"></a>3.1 页面跳转</h3>
+<p>开始我使用 Fetch API 异步加载并返回 .html 文件的内容，但是这样做略微复杂，且很多次导致布局的问题以及空白页面的问题。<br>
+后来我改成了根据传入的参数 page 的值，通过修改 pageContent.data 属性来加载不同的 HTML 文件内容来解决了问题。具体代码如下：</p>
+<pre><code class="prism language-html">  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">&gt;</span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>javascript:void(0)<span class="token punctuation">"</span></span> <span class="token special-attr"><span class="token attr-name">onclick</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token value javascript language-javascript"><span class="token function">loadPage</span><span class="token punctuation">(</span><span class="token string">'food'</span><span class="token punctuation">)</span></span><span class="token punctuation">"</span></span></span><span class="token punctuation">&gt;</span></span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>i</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">'</span>bx bx-video-recording bx-tada<span class="token punctuation">'</span></span> <span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>i</span><span class="token punctuation">&gt;</span></span>喜欢的食品<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">&gt;</span></span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">&gt;</span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">&gt;</span></span>
+</code></pre>
+<pre><code class="prism language-js"> <span class="token keyword">function</span> <span class="token function">loadPage</span><span class="token punctuation">(</span><span class="token parameter">page</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">var</span> pageContent <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'pageContent'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>page <span class="token operator">===</span> <span class="token string">'home'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        pageContent<span class="token punctuation">.</span>data <span class="token operator">=</span> <span class="token string">'taylor.html'</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>page <span class="token operator">===</span> <span class="token string">'about'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        pageContent<span class="token punctuation">.</span>data <span class="token operator">=</span> <span class="token string">'Movies.html'</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>page <span class="token operator">===</span> <span class="token string">'contact'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        pageContent<span class="token punctuation">.</span>data <span class="token operator">=</span> <span class="token string">'Views.html'</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+      <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>page <span class="token operator">===</span> <span class="token string">'food'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        pageContent<span class="token punctuation">.</span>data <span class="token operator">=</span> <span class="token string">'food.html'</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+</code></pre>
+<p>两种跳转页面的方法各有各的，而这种页面跳转方式的好处在于简洁、直观，适用于简单的静态页面加载。不需要额外的异步请求和处理逻辑，可以直接通过修改属性来完成页面跳转。对于一些简单的页面跳转需求，这种方式更加方便快捷。</p>
+<h3><a id="32_hover_616"></a>3.2 hover效果重复</h3>
+<p>这是修改后的hover效果图：<br>
+<img src="https://img-blog.csdnimg.cn/img_convert/f21d11c0b32e3339f13b0db4459838ab.png" alt="在这里插入图片描述"></p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/f5fcc71f2ddaf1ab70bcc82ab6b16a86.png" alt="在这里插入图片描述"></p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/18b3b51eb6728ab7679cf1dc1cca5e62.png" alt="在这里插入图片描述"></p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/6556ede797d13c6b3fe4ed6b624a62b3.png" alt="在这里插入图片描述"></p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/90c4de76f1999ec45c9665ac9af9319e.png" alt="在这里插入图片描述"></p>
+<p>每一个选项的hover效果都有颜色的变化，为了实现这一效果如果使用逐个定义样式的方法将过于繁琐与重复，因此我使用了课堂上讲过的一个方法进行快速设置hover的不同效果：</p>
+<pre><code class="prism language-css"><span class="token selector">li:nth-of-type(1) a:hover</span> <span class="token punctuation">{</span>
+  <span class="token property">background-color</span><span class="token punctuation">:</span> #d60c0c<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">li:nth-of-type(2) a:hover</span> <span class="token punctuation">{</span>
+  <span class="token property">background-color</span><span class="token punctuation">:</span> #13a40e<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">li:nth-of-type(3) a:hover</span> <span class="token punctuation">{</span>
+  <span class="token property">background-color</span><span class="token punctuation">:</span> #63c7f2<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">li:nth-of-type(4) a:hover</span> <span class="token punctuation">{</span>
+  <span class="token property">background-color</span><span class="token punctuation">:</span> #e433f4<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">li:nth-of-type(5) a:hover</span> <span class="token punctuation">{</span>
+  <span class="token property">background-color</span><span class="token punctuation">:</span> #f3e708<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>使用 CSS 伪类选择器 <code>:nth-of-type()</code>，用于选择同类型的元素中的特定位置的元素。使用 <code>:nth-of-type()</code> 来快速选择列表中的不同位置的列表项（<code>&lt;li&gt;</code> 元素）。<br>
+<code>li:nth-of-type(1)</code> 表示选择列表中第一个 <code>&lt;li&gt;</code> 元素，<code>li:nth-of-type(2)</code> 表示选择列表中第二个 <code>&lt;li&gt;</code> 元素，以此类推。<br>
+<code>a:hover</code>也是一个伪类选择器，它用于选择鼠标悬停在链接上的状态。当鼠标悬停在链接上时，应用 <code>:hover</code> 选择器的样式效果。<br>
+所以，通过将 <code>:hover</code> 伪类选择器与 <code>:nth-of-type()</code> 结合使用，可以为不同位置的列表项的链接设置不同的鼠标悬停效果，即改变链接的背景颜色。</p>
+<p>其中通过改变内边距的大小，增大了hover效果，使得hover效果的框比文字稍大一些：</p>
+<pre><code class="prism language-css"><span class="token selector">nav li a</span> <span class="token punctuation">{</span>
+        <span class="token property">font-size</span><span class="token punctuation">:</span> 16px<span class="token punctuation">;</span>
+         <span class="token property">padding</span><span class="token punctuation">:</span> 8px<span class="token punctuation">;</span> <span class="token comment">/*增大hover效果的面积 */</span>
+    <span class="token punctuation">}</span>
+</code></pre>
+<h3><a id="33__659"></a>3.3 主内容区占不满</h3>
+<p>这属于一个很小的问题，在这里也做一个简单的总结：</p>
+<pre><code class="prism language-css"> <span class="token selector">#mainContent</span> <span class="token punctuation">{</span>
+    <span class="token property">position</span><span class="token punctuation">:</span> relative<span class="token punctuation">;</span>
+    <span class="token property">background-color</span><span class="token punctuation">:</span> #f4f4f4<span class="token punctuation">;</span>
+    <span class="token property">height</span><span class="token punctuation">:</span> <span class="token function">calc</span><span class="token punctuation">(</span>100vh - 50px<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">/* 计算主内容区的高度为视口高度减去导航栏的高度 */</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>解决思路即通过计算设置出主内容区的区域所占高度为满视图减去50px即导航栏的高度。</p>
+<h3><a id="34__669"></a>3.4 轮播图问题</h3>
+<p>通过简单的js逻辑可以实现轮播图的效果，首先，通过<code>document.querySelector('.slider')</code>获取到页面中具有<code>slider</code>类名的元素，然后通过<code>slider.getElementsByTagName('img')</code>获取到该元素下的所有<code>img</code>标签。然后，定义了一个变量<code>currentIndex</code>来表示当前显示的图片的索引，默认为0，在设置定时器后，遍历索引，在索引超过图片数量时，将<code>currentIndex</code>重置为0。</p>
+<p>但是会出现进入页面后没有显示任何图片，需要等一会才能显示出第一张图片，因此我在js代码前面补充了一个事件的监听器</p>
+<pre><code class="prism language-js"> <span class="token comment">// 解决了刚进去显示不了图片的问题</span>
+        document<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'DOMContentLoaded'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token function">showImage</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">setInterval</span><span class="token punctuation">(</span>nextImage<span class="token punctuation">,</span> <span class="token number">3000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p>这段代码使用了<code>DOMContentLoaded</code>事件监听器来确保在<em><strong>页面加载完毕后</strong></em>执行代码。在页面加载完毕后，调用<code>showImage(0)</code>函数来显示第一张图片，并使用<code>setInterval</code>函数每隔3秒钟调用<code>nextImage</code>函数，实现自动切换图片的效果。</p>
+<h3><a id="35__684"></a>3.5 跳转页面影响对齐问题</h3>
+<p>该问题是在做项目的过程中前期的遇到的问题，前期我使用到是侧边栏进行与用户交互，然后再侧边栏的右边区域显示跳转的页面，这时就遇到了跳转后页面空白和跳转后侧边栏与主内容区不对齐的问题。</p>
+<p>关于页面空白的解决方案是：<br>
+根据您的描述，将侧边栏页面的<code>body</code>样式中的<code>display: flex;</code>、<code>justify-content: center;</code>和<code>align-items: center;</code>删除后，跳转到的<code>.html</code>可以在主内容区正常展示。</p>
+<p>这是因为<code>display: flex;</code>与<code>justify-content: center;</code>和<code>align-items: center;</code>属性组合在一起，会使<code>body</code>元素成为一个弹性容器，并将其内部的子元素在水平和垂直方向上居中显示。这可能导致<code>body</code>元素占据整个可视窗口的高度，从而覆盖主内容区域。</p>
+<p>通过删除这些样式，<code>body</code>元素将恢复其默认的块级元素行为，并且不会影响其他元素的布局。因此，<code>.html</code>可以在主内容区正常展示，不再被<code>body</code>元素的样式所影响。</p>
+<p>关于页面不对齐的问题：</p>
+<pre><code class="prism language-css"><span class="token selector">.home-section</span> <span class="token punctuation">{</span>
+      <span class="token property">background</span><span class="token punctuation">:</span> <span class="token function">var</span><span class="token punctuation">(</span>--home-bgCololr<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token property">display</span><span class="token punctuation">:</span> flex<span class="token punctuation">;</span>
+    <span class="token property">flex-direction</span><span class="token punctuation">:</span> column<span class="token punctuation">;</span>
+    <span class="token property">height</span><span class="token punctuation">:</span> auto<span class="token punctuation">;</span> <span class="token comment">/*解决了跳转后页面不对齐问题 */</span>
+    <span class="token punctuation">}</span>
+</code></pre>
+<p>我将主内容区的高度设置成auto，即解决了该问题。</p>
+<h3><a id="36__705"></a>3.6 图片去背景</h3>
+<p>为了解决图片背景造成的美化问题，我使用了下面的网站进行图片的去背景化：<br>
+<code>https://www.remove.bg/upload?full_image_id=bc24c020-2962-4bb3-966c-6a0142b4fe06</code><br>
+在专辑页面与风景页面都有所应用。</p>
+<h2><a id="4__710"></a>4 未解决的问题</h2>
+<h3><a id="41__711"></a>4.1 侧边栏跳转后展示不全</h3>
+<p>一些页面在跳转后会出现展示了一部分的问题，如下图所示，因此后来我换成了顶部导航栏，但侧边栏出现的这个情况还未解决。<br>
+<img src="https://img-blog.csdnimg.cn/img_convert/aed0438e5b4b88cf3648666985f76200.png" alt="在这里插入图片描述"></p>
+<h3><a id="42__715"></a>4.2 轮播图图片拉伸</h3>
+<p>轮播图的板块无法解决图片展示时出现拉伸的情况，最终只能将轮播图区域的高度调高，以适应大多数图片的展示情况。</p>
+<h2><a id="5__718"></a>5 项目总结</h2>
+<p>本次项目我做了一个关于“我喜欢的”为主题的静态网站项目，在制作的过程中，从开始的分析阶段到实现过程中的不断的试错阶段都提升了我的前端设计与编码能力，熟悉了相关属性的作用以及样式的含义，再加上JavaScript的逻辑部分的实现，可以巧妙地制作出我想要的效果（比如专辑页面的动画效果，看似复杂实则是两个不同形状卡片的切换过渡，与图片的样式透明度设置）。利用切换时间的设置不同以实现最终的效果。还有在想到要实现一个图片移动的效果时，可以换个角度考虑，以图片跟父元素之间的距离为出发点，调整他们的距离，移动的方向就是相反的，将这个思路写到JavaScript里面就实现了图片的移动效果。而“电影模块”的轮播图实现，则通过查阅相关资料了解一些比较系统的解决方案后，再进行的一个设计，虽然存在一些问题比如轮播图中的图片有时会拉伸严重，造成美观上的不足，因此我只能调高其高度来实现拉伸的减缓，但这样就会显得轮播图很巨大。</p>
+<p>但还有很多不足之处，比如页面的美化、文字部分的美化、布局还可以优化以及页面切换时的平滑效果，轮播图没有设计箭头的效果，用户无法自己切换轮播图。这些方面和市面上的网页设计还是存在一定的差距，因此还需要继续努力的改进。</p>
+<p>而针对这些相关的问题，我也想到一些解决方案与展望：</p>
+<ul>
+<li>
+<p>关于页面美化：考虑使用合适的配色方案（ColorDrop网站，虽然这次有用到但是用的不够）和字体组合来提升整体的美观度。参考一些优秀的网站设计以及色彩理论来选择合适的颜色搭配。此外，使用吸引人的高质量图片作为背景或插图也可以提升网站的外观。</p>
+</li>
+<li>
+<p>关于文字美化：选择适合网站风格的字体，并为标题、段落和链接等元素应用合适的样式，如字体大小、行高和字间距。可以使用CSS的文本属性来实现这些效果。</p>
+</li>
+<li>
+<p>关于布局优化：本次弹性布局使用的比较多，但使用网格系统或弹性盒子布局也可以更好地控制页面的布局。应该熟练掌握这两种布局方式。</p>
+</li>
+<li>
+<p>平滑过渡效果：通过使用CSS过渡或动画来实现页面切换时的平滑过渡效果。这些过渡效果可以为用户提供更好的视觉体验，并增强网站的专业感。</p>
+</li>
+<li>
+<p>轮播图改进：考虑添加箭头按钮或指示器来让用户自己切换轮播图。这样用户可以根据自己的喜好自由浏览图片。同时，为了确保轮播图中的图片不会拉伸变形，以后可以尝试使用适当的图片大小或裁剪图片来适应轮播图的尺寸。</p>
+</li>
+</ul>
+<p>所以继续努力改进你的网站是非常重要，不断学习和尝试新的设计和编码技术，关注用户的反馈，并寻求灵感和参考于其他优秀的网站设计，来不断提升你的网站的质量和用户体验。</p>
+</div>
+</body>
+
+</html>

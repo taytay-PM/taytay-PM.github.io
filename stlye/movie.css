@@ -1,0 +1,125 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+}
+.container{
+    max-width: 1200px;
+    margin: 0 auto;
+    /* padding: 20px; */
+}
+header{
+    background: linear-gradient(to left, #FFA07A 40%,#FFC0CB);
+    color: aliceblue;
+    padding: 20px 0;
+}
+header h1{
+    font-size: 46px;
+}
+main{
+    padding: 0;
+}
+section{
+    margin-bottom: 40px;
+
+}
+section h2{
+    margin-bottom: 20px;
+}
+/* #banner{
+    background-image: url(/assets/The_Boys.png);
+    background-size: cover;
+    background-position: center;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+} */
+#banner {
+    height: 740px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+  }
+  
+  .slider {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .slider img {
+
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+  
+    transition: opacity 0.5s ease-in-out;
+  }
+  
+  .slider img.active {
+    opacity: 1;
+  }
+  
+.container p{
+    font-size: 15px;
+    margin-bottom: 30px;
+
+}
+.banner h2{
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+.banner p{
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+.Button {
+    padding: 10px 20px;
+    background-color: rgb(99, 25, 219);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 30px;
+}
+#movies .movie{
+    display: inline-block;
+    margin-right: 20px;
+    margin-top: 20px;
+    width: 200px;
+}
+#movies .movie img{
+    width: 200px;
+    height: 300px;
+    border-radius: 5px;
+    object-fit: cover;
+}
+#movies .movie img:hover{
+    transition: .25s ease-in-out;
+    transform: scale(1.1);
+
+}
+#movies .movie a{
+    text-decoration: none;
+    color: #333;
+    font-weight: 600;
+}
+footer{
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}

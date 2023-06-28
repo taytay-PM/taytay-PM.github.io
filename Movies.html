@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movies</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto"> 
+     <link rel="stylesheet" href="./stlye/movie.css">
+     <style>
+        /* Google Font Link */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+        </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>My Favorite Movies</h1>
+        </div>
+    </header>
+    <main>
+        
+            <div id="banner">
+                <div class="slider">
+                  <img src="/assets/The_Boys.png" alt="Image 1">
+                  <img src="/assets/jsc.jpg" alt="Image 2">
+                  <img src="/assets/made.png" alt="Image 3">
+                  <img src="/assets/Amsterdam.jpg" alt="Image 4">
+                  <img src="/assets/la-la-land.jpg" alt="Image 5">
+                </div>
+              </div>
+
+        
+        <section id="movies">
+            <div class="container">
+                <h2>My Baby</h2>
+                <div class="movie">
+                <img src="./assets/LALALAND.jpg" alt="">
+                <h3>Movie1</h3>
+                <a herf="#">LALALAND</a>
+            </div>
+            <div class="movie">
+                <img src="./assets/MAX.jpg" alt="">
+                <h3>Movie1</h3>
+                <a herf="#">CRAZY MAX</a>
+            </div>
+            <div class="movie">
+                <img src="./assets/joker.jpg" alt="">
+                <h3>Movie1</h3>
+                <a herf="#">joker</a>
+            </div>
+            <div class="movie">
+                <img src="./assets/Batman.jpg" alt="">
+                <h3>Movie1</h3>
+                <a herf="#">Batman</a>
+            </div>
+            <div class="movie">
+                <img src="./assets/sq.jpg" alt="">
+                <h3>Movie1</h3>
+                <a herf="#">Batman</a> 
+                <div>
+                <i class='bx bx-log-out' id="log_out"></i>
+            </div>
+            </div>
+           
+            </div>
+          
+        </section>
+    </main>
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 movie web</p>
+        </div>
+    </footer>
+    <script>
+        // 解决了刚进去显示不了图片的问题
+        document.addEventListener('DOMContentLoaded', function() {
+  showImage(0);
+  setInterval(nextImage, 3000);
+});
+
+    const slider = document.querySelector('.slider');
+const images = slider.getElementsByTagName('img');
+let currentIndex = 0;
+
+function showImage(index) {
+  for (let i = 0; i < images.length; i++) {
+    images[i].classList.remove('active');
+  }
+  images[index].classList.add('active');
+}
+
+function nextImage() {
+  currentIndex++;
+  if (currentIndex >= images.length) {
+    currentIndex = 0;
+  }
+  showImage(currentIndex);
+}
+
+setInterval(nextImage, 3000);
+
+</script>
+</body>
+
+</html>

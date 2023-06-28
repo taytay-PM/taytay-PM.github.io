@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 class="code-line" data-line-start=0 data-line-end=1 ><a id="Web_0"></a>《Web应用基础》课程结业报告</h1>
+<h2 class="code-line" data-line-start=2 data-line-end=3 ><a id="1_2"></a>1.项目概述</h2>
+<p class="has-line-data" data-line-start="4" data-line-end="5">我喜欢的音乐、电影、风景和城市是我生活中重要的组成部分。我希望能够创建一个个人的静态网页项目，以展示我对这些领域的热爱和兴趣。通过这个项目，我可以将我的喜好展示给他人，并与他们分享我的观点、推荐和体验。同时，这个项目也是我提高前端开发技能的一个机会，让我能够实践HTML、CSS和JavaScript等技术，打造一个美观且具有交互性的网页。</p>
+<h2 class="code-line" data-line-start=6 data-line-end=7 ><a id="2_6"></a>2.设计开发过程</h2>
+<p class="has-line-data" data-line-start="8" data-line-end="9">下面我将从登录页面到主页面的四个分页面逐个介绍我的设计思路与实现过程，将分页面介绍每个页面具体功能的实现。</p>
+<h3 class="code-line" data-line-start=10 data-line-end=11 ><a id="21_Login_10"></a>2.1 Login（登录页面）</h3>
+<h4 class="code-line" data-line-start=12 data-line-end=13 ><a id="211__12"></a>2.1.1 总体介绍</h4>
+<p class="has-line-data" data-line-start="14" data-line-end="15">登录页面的设计是一个具有动态效果的玻璃效果登录界面。下面我会逐步解释这个页面的布局样式和实现的功能。</p>
+<h4 class="code-line" data-line-start=16 data-line-end=17 ><a id="212__16"></a>2.1.2 布局与样式</h4>
+<pre><code class="has-line-data" data-line-start="19" data-line-end="29" class="language-css"><span class="hljs-tag">section</span> <span class="hljs-rules">{
+  <span class="hljs-rule"><span class="hljs-attribute">position</span>:<span class="hljs-value"> relative</span></span>;
+  <span class="hljs-rule"><span class="hljs-attribute">display</span>:<span class="hljs-value"> flex</span></span>;
+  <span class="hljs-rule"><span class="hljs-attribute">justify-content</span>:<span class="hljs-value"> center</span></span>;
+  <span class="hljs-rule"><span class="hljs-attribute">align-items</span>:<span class="hljs-value"> center</span></span>;
+  <span class="hljs-rule"><span class="hljs-attribute">width</span>:<span class="hljs-value"> <span class="hljs-number">100%</span></span></span>;
+  <span class="hljs-rule"><span class="hljs-attribute">height</span>:<span class="hljs-value"> <span class="hljs-number">100vh</span></span></span>;
+  <span class="hljs-rule"><span class="hljs-attribute">overflow</span>:<span class="hljs-value"> hidden</span></span>;
+}</span>
+</code></pre>
+<ul>
+<li class="has-line-data" data-line-start="30" data-line-end="32">整个页面使用了一个<code>section</code>元素作为容器，并设置了宽度和高度为100vh，占据整个视口的高度。通过设置<code>justify-content: center</code>和<code>align-items: center</code>来使内容在垂直和水平方向上居中显示。</li>
+</ul>
+<pre><code class="has-line-data" data-line-start="33" data-line-end="53" class="language-html">  <span class="hljs-tag">&lt;<span class="hljs-title">section</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"container"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">"scene"</span>&gt;</span>
+         
+          <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"layer"</span> <span class="hljs-attribute">data-depth-x</span>=<span class="hljs-value">"0.15"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-title">img</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">"./assets/lavender.png"</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"lavender"</span>/&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+    
+        <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"login"</span> <span class="hljs-attribute">data-depth-x</span>=<span class="hljs-value">"-0.25"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">h2</span>&gt;</span>登录<span class="hljs-tag">&lt;/<span class="hljs-title">h2</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"inputBox"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">input</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">"text"</span> <span class="hljs-attribute">placeholder</span>=<span class="hljs-value">"直接点击登录即可"</span><span class="hljs-value">&lt;</span>/<span class="hljs-attribute">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"inputBox"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">input</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">"password"</span> <span class="hljs-attribute">placeholder</span>=<span class="hljs-value">"直接点击登录即可"</span><span class="hljs-value">&lt;</span>/<span class="hljs-attribute">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"inputBox"</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-title">input</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">"submit"</span> <span class="hljs-attribute">value</span>=<span class="hljs-value">"登入"</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">"btn"</span> /&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-title">section</span>&gt;</span>
+</code></pre>
+<ul>
+<li class="has-line-data" data-line-start="54" data-line-end="56">在HTML中，<code>section</code>元素内部包含了一个<code>.container</code>元素和一个<code>.login</code>元素。.container元素用于容纳动态效果的背景图层，<code>.login</code>元素则是登录框的容器。</li>
+</ul>
+<pre><code class="has-line-data" data-line-start="57" data-line-end="64" class="language-css"><span class="hljs-class">.container</span> <span class="hljs-rules">{
+  <span class="hljs-rule"><span class="hljs-attribute">position</span>:<span class="hljs-value"> absolute</span></span>;
+  <span class="hljs-rule"><span class="hljs-attribute">left</span>:<span class="hljs-value"> -<span class="hljs-number">10%</span></span></span>;
+  <span class="hljs-rule"><span class="hljs-attribute">width</span>:<span class="hljs-value"> <span class="hljs-number">120%</span></span></span>;
+  <span class="hljs-rule"><span class="hljs-attribute">height</span>:<span class="hljs-value"> <span class="hljs-number">100vh</span></span></span>;
+}</span>
+</code></pre>
+<p class="has-line-data" data-line-start="65" data-line-end="66">.container元素被设置为绝对定位，并且占据了整个视口的宽度和高度。</p>
+<pre><code class="has-line-data" data-line-start="68" data-line-end="84" class="language-css"><span class="hljs-class">.container</span> <span class="hljs-id">#scene</span> <span class="hljs-class">.layer</span> <span class="hljs-rules">{
+  <span class="hljs-rule"><span class="hljs-attribute">position</span>:<span class="hljs-value"> absolute</span></span>;
+  <span class="hljs-rule"><span class="hljs-attribute">top</span>:<span class="hljs-value"> <span class="hljs-number">0</span></span></span>;
+  <span class="hljs-rule"><span class="hljs-attribute">left</span>:<span class="hljs-value"> <span class="hljs-number">0</span></span></span>;
+  <span class="hljs-rule"><span class="hljs-attribute">width</span>:<span class="hljs-value"> <span class="hljs-number">100%</span></span></span>;
+  <span class="hljs-rule"><span class="hljs-attribute">height</span>:<span class="hljs-value"> <span class="hljs-number">100vh</span></span></span>;
+}</span>
+<span class="hljs-class">.container</span> <span class="hljs-class">.layer</span> <span class="hljs-tag">img</span> <span class="hljs-rules">{
+  <span class="hljs-rule"><span class="hljs-attribute">position</span>:<span class="hljs-value"> absolute</span></span>;
+  <span class="hljs-rule"><span class="hljs-attribute">bottom</span>:<span class="hljs-value"> <span class="hljs-number">0</span></span></span>;
+  <span class="hljs-rule"><span class="hljs-attribute">left</span>:<span class="hljs-value"> <span class="hljs-number">0</span></span></span>;
+  <span class="hljs-rule"><span class="hljs-attribute">width</span>:<span class="hljs-value"> <span class="hljs-number">100%</span></span></span>;
+  <span class="hljs-rule"><span class="hljs-attribute">height</span>:<span class="hljs-value"> <span class="hljs-number">100%</span></span></span>;
+  <span class="hljs-rule"><span class="hljs-attribute">object-fit</span>:<span class="hljs-value"> cover</span></span>;
+}</span>
+</code></pre>
+<ul>
+<li class="has-line-data" data-line-start="85" data-line-end="86"><code>.container</code>元素内部的<code>#scene</code>元素是用来创建动态效果的容器。</li>
+<li class="has-line-data" data-line-start="86" data-line-end="87"><code>.layer</code>元素是一个图层，通过设置<code>data-depth-x</code>属性来控制其在水平方向上的移动速度。在这个例子中，<code>data-depth-x=&quot;0.15&quot;</code>表示该图层会以比其他图层更慢的速度水平移动。</li>
+<li class="has-line-data" data-line-start="87" data-line-end="89"><code>.layer</code>元素内部包含一个<code>img</code>元素，通过设置<code>object-fit: cover</code>来保持图片的比例不变，并且填充满整个图层。</li>
+</ul>
+<pre><code class="has-line-data" data-line-start="90" data-line-end="106" class="language-css"><span class="hljs-class">.login</span> <span class="hljs-rules">{
+  <span class="hljs-rule"><span class="hljs-attribute">position</span>:<span class="hljs-value"> relative</span></span>;
+  <span class="hljs-rule"><span class="hljs-attribute">padding</span>:<span class="hljs-value"> <span class="hljs-number">60px</span></span></span>;
+  <span class="hljs-rule"><span class="hljs-attribute">background</span>:<span class="hljs-value"> <span class="hljs-function">rgba</span>(<span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">0.15</span>)</span></span>;
+  <span class="hljs-rule"><span class="hljs-attribute">backdrop-filter</span>:<span class="hljs-value"> <span class="hljs-function">blur</span>(<span class="hljs-number">25px</span>)</span></span>;
+  <span class="hljs-rule"><span class="hljs-attribute">border</span>:<span class="hljs-value"> <span class="hljs-number">1px</span> solid <span class="hljs-function">rgba</span>(<span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">0.5</span>)</span></span>;
+  <span class="hljs-rule"><span class="hljs-attribute">border-bottom</span>:<span class="hljs-value"> <span class="hljs-number">1px</span> solid <span class="hljs-function">rgba</span>(<span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">0.25</span>)</span></span>;
+  <span class="hljs-rule"><span class="hljs-attribute">border-left</span>:<span class="hljs-value"> <span class="hljs-number">1px</span> solid <span class="hljs-function">rgba</span>(<span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">0.25</span>)</span></span>;
+  <span class="hljs-rule"><span class="hljs-attribute">border-radius</span>:<span class="hljs-value"> <span class="hljs-number">20px</span></span></span>;
+  <span class="hljs-rule"><span class="hljs-attribute">width</span>:<span class="hljs-value"> <span class="hljs-number">500px</span></span></span>;
+  <span class="hljs-rule"><span class="hljs-attribute">display</span>:<span class="hljs-value"> flex</span></span>;
+  <span class="hljs-rule"><span class="hljs-attribute">flex-direction</span>:<span class="hljs-value"> column</span></span>;
+  <span class="hljs-rule"><span class="hljs-attribute">gap</span>:<span class="hljs-value"> <span class="hljs-number">30px</span></span></span>;
+  <span class="hljs-rule"><span class="hljs-attribute">box-shadow</span>:<span class="hljs-value"> <span class="hljs-number">0</span> <span class="hljs-number">25px</span> <span class="hljs-number">50px</span> <span class="hljs-function">rgba</span>(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0.1</span>)</span></span>;
+}</span>
+</code></pre>
+<p class="has-line-data" data-line-start="107" data-line-end="108"><code>.login</code>元素是登录框的容器，它被设置为相对定位，并设置了一些样式属性来实现<strong><em>玻璃效果</em></strong>具体过程如下：</p>
+<ul>
+<li class="has-line-data" data-line-start="109" data-line-end="110">通过设置背景的颜色和透明度<code>background: rgba(255, 255, 255, 0.15);</code>。使用了RGBA颜色表示法，其中最后一个参数0.15表示透明度为15%、背景模糊和边框等样式属性来实现这个效果。</li>
+<li class="has-line-data" data-line-start="110" data-line-end="111">通过使用<code>backdrop-filter: blur(25px);</code>。设置了一个模糊半径为25px的模糊效果。</li>
+<li class="has-line-data" data-line-start="111" data-line-end="113">通过<code>border: 1px solid rgba(255, 255, 255, 0.5);</code>设置了一个宽度为1px、颜色为白色、透明度为50%的实线边框，最终达到玻璃效果。</li>
+</ul>
+<h4 class="code-line" data-line-start=113 data-line-end=114 ><a id="212__113"></a>2.1.2 功能实现</h4>
+<pre><code class="has-line-data" data-line-start="116" data-line-end="144" class="language-js">  &lt;script src=<span class="hljs-string">"https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"</span>&gt;<span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">script</span>&gt;</span><span class="javascript">
+      <span class="hljs-keyword">var</span> scene = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">"scene"</span>);
+      <span class="hljs-keyword">var</span> parallax = <span class="hljs-keyword">new</span> Parallax(scene);
+
+      <span class="hljs-keyword">const</span> login = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'.login'</span>);
+<span class="hljs-keyword">const</span> layers = <span class="hljs-built_in">document</span>.querySelectorAll(<span class="hljs-string">'.layer img'</span>);
+
+login.addEventListener(<span class="hljs-string">'mouseenter'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-comment">// 在鼠标进入登录框时修改layer中img的属性或样式</span>
+  layers.forEach(layer =&gt; {
+    <span class="hljs-comment">// 示例: 修改图片的src属性</span>
+    layer.src = <span class="hljs-string">'./assets/loginchange.png'</span>;
+  });
+});
+
+login.addEventListener(<span class="hljs-string">'mouseleave'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+ 
+    <span class="hljs-comment">// 示例: 还原图片的src属性</span>
+    layers.forEach(layer=&gt;{  layer.src = <span class="hljs-string">'./assets/lavender.png'</span>;})
+    
+});
+
+<span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">"btn"</span>).addEventListener(<span class="hljs-string">"click"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-built_in">window</span>.location.href = <span class="hljs-string">"index.html"</span>;
+});
+    </span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+</span></code></pre>
+<p class="has-line-data" data-line-start="145" data-line-end="149">在JavaScript部分，Parallax.js库来实现视差效果，当用户滚动页面时，不同的元素以不同的速度移动根据上方<code>data-depth-x</code>属性设置的移动速度，实现一个动态的视差效果。scene 是页面上的一个元素或容器，用于显示视差效果。通过事件监听器实现了一些动态效果。当鼠标进入.login元素时，通过修改图层中<code>img</code>元素的<code>src</code>属性，将图片替换为<code>&quot;./assets/loginchange.png&quot;</code>，实现了登录框上方图层图片的变化效果。当鼠标离开.login元素时，通过还原img元素的src属性，将图片替换为<code>&quot;./assets/lavender.png&quot;</code>，实现了还原的效果。<br>
+当点击登录按钮时，通过JavaScript的<code>window.location.href</code>属性将页面跳转到<code>&quot;index.html&quot;</code>。<br>
+最终效果如下：<br>
+<img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/39f305aecc584388b9edfbccfdb63c42~tplv-k3u1fbpfcp-zoom-1.image" alt="在这里插入图片描述"></p>
+<p class="has-line-data" data-line-start="150" data-line-end="151"><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/42435da666774b72b8cbc5f07aa7243b~tplv-k3u1fbpfcp-zoom-1.image" alt="在这里插入图片描述"></p>
+<h3 class="code-line" data-line-start=152 data-line-end=153 ><a id="22_index_152"></a>2.2 index（主页面）</h3>
+<h4 class="code-line" data-line-start=154 data-line-end=155 ><a id="221__154"></a>2.2.1 总体介绍</h4>
+<p class="has-line-data" data-line-start="156" data-line-end="157">该部分实现了一个具有导航栏跳转功能的导航栏。</p>
+<h4 class="code-line" data-line-start=158 data-line-end=159 ><a id="222__158"></a>2.2.2 布局设计</h4>
+<pre><code class="has-line-data" data-line-start="161" data-line-end="178" class="language-html"> <span class="hljs-tag">&lt;<span class="hljs-title">nav</span>&gt;</span>
+       <span class="hljs-tag">&lt;<span class="hljs-title">li</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">a</span> <span class="hljs-attribute">href</span>=<span class="hljs-value">"javascript:void(0)"</span> <span class="hljs-attribute">onclick</span>=<span class="hljs-value">"loadPage('home')"</span>&gt;</span>  <span class="hljs-tag">&lt;<span class="hljs-title">i</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">'bx bxs-book-heart bx-tada'</span> &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">i</span>&gt;</span>
+        喜欢的专辑<span class="hljs-tag">&lt;/<span class="hljs-title">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">li</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">a</span> <span class="hljs-attribute">href</span>=<span class="hljs-value">"javascript:void(0)"</span> <span class="hljs-attribute">onclick</span>=<span class="hljs-value">"loadPage('about')"</span>&gt;</span> <span class="hljs-tag">&lt;<span class="hljs-title">i</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">'bx bx-video-recording bx-tada'</span> &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">i</span>&gt;</span>喜欢的电影<span class="hljs-tag">&lt;/<span class="hljs-title">a</span>&gt;</span> <span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">li</span>&gt;</span>  <span class="hljs-tag">&lt;<span class="hljs-title">i</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">'bx bxs-cable-car bx-tada'</span> &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">i</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">a</span> <span class="hljs-attribute">href</span>=<span class="hljs-value">"javascript:void(0)"</span> <span class="hljs-attribute">onclick</span>=<span class="hljs-value">"loadPage('contact')"</span>&gt;</span>喜欢的风景<span class="hljs-tag">&lt;/<span class="hljs-title">a</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-title">li</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-title">a</span> <span class="hljs-attribute">href</span>=<span class="hljs-value">"javascript:void(0)"</span> <span class="hljs-attribute">onclick</span>=<span class="hljs-value">"loadPage('food')"</span>&gt;</span> <span class="hljs-tag">&lt;<span class="hljs-title">i</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">'bx bx-video-recording bx-tada'</span> &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">i</span>&gt;</span>喜欢的食品<span class="hljs-tag">&lt;/<span class="hljs-title">a</span>&gt;</span> <span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-title">li</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-title">a</span> <span class="hljs-attribute">href</span>=<span class="hljs-value">"javascript:void(0)"</span> <span class="hljs-attribute">onclick</span>=<span class="hljs-value">"loadPage('t')"</span>&gt;</span> <span class="hljs-tag">&lt;<span class="hljs-title">i</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">'bx bx-video-recording bx-tada'</span> &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">i</span>&gt;</span>作业报告<span class="hljs-tag">&lt;/<span class="hljs-title">a</span>&gt;</span> <span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
+    
+          <span class="hljs-tag">&lt;/<span class="hljs-title">nav</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">"mainContent"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">object</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">"pageContent"</span> <span class="hljs-attribute">data</span>=<span class="hljs-value">"taylor.html"</span> <span class="hljs-attribute">width</span>=<span class="hljs-value">"100%"</span> <span class="hljs-attribute">height</span>=<span class="hljs-value">"100%"</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">"text/html"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">object</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+</code></pre>
+<p class="has-line-data" data-line-start="179" data-line-end="181">使用<code>&lt;nav&gt;</code> 标签定义导航栏，包含一组导航选项。每个导航选项由一个<code>&lt;li&gt;</code> 元素表示。每个导航选项都包含一个带有图标和文本的<code>&lt;a&gt;</code>元素并添加点击事件，用于跳转到相应的页面。<code>&lt;div id=&quot;mainContent&quot;&gt;</code> 标签定义了主内容区域，用于显示加载的页面内容。<br>
+<code>&lt;object&gt;</code>元素用于在 <code>&lt;div id=&quot;mainContent&quot;&gt;</code>中加载不同的页面。</p>
+<pre><code class="has-line-data" data-line-start="183" data-line-end="209" class="language-css">        * <span class="hljs-rules">{
+    <span class="hljs-rule"><span class="hljs-attribute">margin</span>:<span class="hljs-value"> <span class="hljs-number">0</span></span></span>;
+    <span class="hljs-rule"><span class="hljs-attribute">padding</span>:<span class="hljs-value"> <span class="hljs-number">0</span></span></span>;
+    <span class="hljs-rule"><span class="hljs-attribute">box-sizing</span>:<span class="hljs-value"> border-box</span></span>;
+ 
+}</span>
+<span class="hljs-tag">nav</span> <span class="hljs-tag">li</span><span class="hljs-rules">{
+    <span class="hljs-rule"><span class="hljs-attribute">position</span>:<span class="hljs-value"> relative</span></span>;
+      <span class="hljs-rule"><span class="hljs-attribute">margin</span>:<span class="hljs-value"> .<span class="hljs-number">5rem</span> <span class="hljs-number">0</span></span></span>;
+      <span class="hljs-rule"><span class="hljs-attribute">padding</span>:<span class="hljs-value"> <span class="hljs-number">17px</span></span></span>;  
+}</span>
+<span class="hljs-tag">nav</span> <span class="hljs-tag">li</span> <span class="hljs-tag">a</span> <span class="hljs-rules">{
+        <span class="hljs-rule"><span class="hljs-attribute">font-size</span>:<span class="hljs-value"> <span class="hljs-number">16px</span></span></span>;
+         <span class="hljs-rule"><span class="hljs-attribute">padding</span>:<span class="hljs-value"> <span class="hljs-number">8px</span></span></span>; <span class="hljs-comment">/*增大hover效果的面积 */</span>
+    }</span>
+
+<span class="hljs-tag">nav</span> <span class="hljs-rules">{
+    <span class="hljs-rule"><span class="hljs-attribute">height</span>:<span class="hljs-value"> <span class="hljs-number">50px</span></span></span>; <span class="hljs-comment">/* 设置导航栏的高度 */</span>
+    <span class="hljs-rule"><span class="hljs-attribute">background-color</span>:<span class="hljs-value"> <span class="hljs-hexcolor">#333</span></span></span>;
+    <span class="hljs-rule"><span class="hljs-attribute">color</span>:<span class="hljs-value"> <span class="hljs-hexcolor">#fff</span></span></span>;
+    <span class="hljs-rule"><span class="hljs-attribute">padding</span>:<span class="hljs-value"> <span class="hljs-number">10px</span></span></span>;
+    <span class="hljs-rule"><span class="hljs-attribute">display</span>:<span class="hljs-value"> flex</span></span>;
+ <span class="hljs-rule"><span class="hljs-attribute">justify-content</span>:<span class="hljs-value"> space-between</span></span>;
+     <span class="hljs-rule"><span class="hljs-attribute">align-items</span>:<span class="hljs-value"> center</span></span>;<span class="hljs-comment">/*选项都进行垂直方向的居中 */</span>
+}</span>
+</code></pre>
+<ul>
+<li class="has-line-data" data-line-start="210" data-line-end="212">选择器用于将所有元素的 <code>margin</code>和 <code>padding</code> 设置为 0，并将 <code>box-sizing</code> 设置为 <code>border-box</code>，属于每个页面样式的初始化</li>
+</ul>
+<p class="has-line-data" data-line-start="212" data-line-end="213">&lt;!----&gt;</p>
+<ul>
+<li class="has-line-data" data-line-start="214" data-line-end="215"><code>nav li</code> 选择器用于设置导航栏中每个选项的样式，包括相对定位、边距和内边距。</li>
+<li class="has-line-data" data-line-start="215" data-line-end="216"><code>nav li a</code> 选择器用于设置导航栏中每个选项的链接样式，包括字体大小、内边距和过渡效果。</li>
+<li class="has-line-data" data-line-start="216" data-line-end="218"><code>nav</code> 选择器用于设置导航栏的样式,<code>justify-content: space-between;</code>实现了每个选项的分散均匀分布  <code>align-items: center;</code>则实现了每个选项中文字的垂直方向居中</li>
+</ul>
+<p class="has-line-data" data-line-start="218" data-line-end="220">图标的动态效果则是在网站：<code>https://boxicons.com/</code>中选择的动态图标：<br>
+<img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/097b6675237546ea88360ee4e0f0d400~tplv-k3u1fbpfcp-zoom-1.image" alt="在这里插入图片描述"></p>
+<h4 class="code-line" data-line-start=221 data-line-end=222 ><a id="223__221"></a>2.2.3 功能实现</h4>
+<pre><code class="has-line-data" data-line-start="224" data-line-end="239" class="language-js">  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">loadPage</span>(<span class="hljs-params">page</span>) </span>{
+      <span class="hljs-keyword">var</span> pageContent = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'pageContent'</span>);
+      
+      <span class="hljs-keyword">if</span> (page === <span class="hljs-string">'home'</span>) {
+        pageContent.data = <span class="hljs-string">'taylor.html'</span>;
+      } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (page === <span class="hljs-string">'about'</span>) {
+        pageContent.data = <span class="hljs-string">'Movies.html'</span>;
+      } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (page === <span class="hljs-string">'contact'</span>) {
+        pageContent.data = <span class="hljs-string">'Views.html'</span>;
+      }
+      <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (page === <span class="hljs-string">'food'</span>) {
+        pageContent.data = <span class="hljs-string">'food.html'</span>;
+      }
+    }
+</code></pre>
+<p class="has-line-data" data-line-start="240" data-line-end="242">设计<code>loadPage(page)</code> 函数用于根据传入的页面名称加载相应的页面内容。<br>
+当点击导航选项时，通过调用<code>loadPage(page)</code>函数，将相应页面的文件路径赋值给 <code>&lt;object&gt;</code>元素的 <code>data</code> 属性，以在主内容区域中显示该页面的内容。</p>
+<h3 class="code-line" data-line-start=243 data-line-end=244 ><a id="23__243"></a>2.3 喜欢的专辑页面</h3>
+<h4 class="code-line" data-line-start=245 data-line-end=246 ><a id="231__245"></a>2.3.1 总体介绍</h4>
+<p class="has-line-data" data-line-start="247" data-line-end="248">该页面展示了我最喜爱的9张专辑，并实现了一个比较炫酷的过渡效果。</p>
+<h4 class="code-line" data-line-start=249 data-line-end=250 ><a id="232__249"></a>2.3.2 布局样式</h4>
+<pre><code class="has-line-data" data-line-start="252" data-line-end="270" class="language-html"> <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"card-container"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"card"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"circle"</span> <span class="hljs-attribute">style</span>=<span class="hljs-value">"--clr:#f6c915"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">img</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">"./assets/Taylor-Swift-Logo.png"</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"logo"</span>  <span class="hljs-attribute">style</span>=<span class="hljs-value">"width: 300px; height: auto;"</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"content"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">h2</span>&gt;</span>Fearless<span class="hljs-tag">&lt;/<span class="hljs-title">h2</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">p</span>&gt;</span>❤️Love Story<span class="hljs-tag">&lt;<span class="hljs-title">br</span>&gt;</span>
+          ❤️You belong with me<span class="hljs-tag">&lt;<span class="hljs-title">br</span>&gt;</span>
+          ❤️Fifteen<span class="hljs-tag">&lt;/<span class="hljs-title">p</span>&gt;</span>
+         <span class="hljs-tag">&lt;<span class="hljs-title">a</span> <span class="hljs-attribute">herf</span>=<span class="hljs-value">"#"</span>&gt;</span>无畏<span class="hljs-tag">&lt;/<span class="hljs-title">a</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">img</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">"./assets/taylor.png"</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"product_img"</span>&gt;</span>
+   
+    <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+
+    ......
+</code></pre>
+<p class="has-line-data" data-line-start="271" data-line-end="272">定义了一个卡片容器，包含一个圆形元素、内容元素和图像。这是整个页面的核心部分。</p>
+<pre><code class="has-line-data" data-line-start="274" data-line-end="291" class="language-css">* <span class="hljs-rules">{
+    <span class="hljs-rule"><span class="hljs-attribute">margin</span>:<span class="hljs-value"> <span class="hljs-number">0</span></span></span>;
+    <span class="hljs-rule"><span class="hljs-attribute">padding</span>:<span class="hljs-value"> <span class="hljs-number">0</span></span></span>;
+    <span class="hljs-rule"><span class="hljs-attribute">box-sizing</span>:<span class="hljs-value"> border-box</span></span>;
+    <span class="hljs-rule"><span class="hljs-attribute">font-family</span>:<span class="hljs-value"> <span class="hljs-string">"Poppins"</span>, sans-serif</span></span>;
+  }</span>
+  <span class="hljs-class">.card-container</span> <span class="hljs-rules">{
+    <span class="hljs-rule"><span class="hljs-attribute">display</span>:<span class="hljs-value"> flex</span></span>;
+  }</span>
+ 
+  <span class="hljs-tag">body</span><span class="hljs-rules">{
+    <span class="hljs-rule"><span class="hljs-attribute">justify-content</span>:<span class="hljs-value">center</span></span>;
+    <span class="hljs-rule"><span class="hljs-attribute">align-items</span>:<span class="hljs-value"> center</span></span>;
+    <span class="hljs-rule"><span class="hljs-attribute">min-height</span>:<span class="hljs-value"><span class="hljs-number">100vh</span></span></span>;
+    <span class="hljs-rule"><span class="hljs-attribute">background-color</span>:<span class="hljs-value"> black</span></span>;
+  }</span>
+</code></pre>
+<p class="has-line-data" data-line-start="292" data-line-end="293"><code>card-container</code>采用弹性布局，使得每个卡片横着排列，<code>body</code>的样式使得占满整个视口，且元素横纵居中。</p>
+<h4 class="code-line" data-line-start=294 data-line-end=295 ><a id="_294"></a>过渡效果的实现</h4>
+<p class="has-line-data" data-line-start="296" data-line-end="297">本部分过渡效果的实现整体思路是，先在卡片中填入文字并将其布局居中，后用圆形元素将其覆盖，而当鼠标移动到卡片上时圆形元素内的图标会瞬间消失，再衔接上卡片和图片的hover效果，以实现一个绚丽的过渡。具体实现过程如下：</p>
+<p class="has-line-data" data-line-start="298" data-line-end="299">1、卡片hover效果</p>
+<pre><code class="has-line-data" data-line-start="301" data-line-end="306" class="language-css"><span class="hljs-class">.card</span><span class="hljs-pseudo">:hover</span> <span class="hljs-rules">{
+  <span class="hljs-rule"><span class="hljs-attribute">width</span>:<span class="hljs-value"> <span class="hljs-number">600px</span></span></span>;
+  <span class="hljs-rule"><span class="hljs-attribute">transition-delay</span>:<span class="hljs-value"> <span class="hljs-number">0.5s</span></span></span>;
+}</span>
+</code></pre>
+<ul>
+<li class="has-line-data" data-line-start="307" data-line-end="309">当鼠标悬停在卡片上时，卡片的宽度会从初始的310px过渡到600px。transition-delay属性指定了过渡效果延迟0.5秒触发，即在悬停0.5秒后开始过渡。</li>
+</ul>
+<p class="has-line-data" data-line-start="309" data-line-end="310">2、圆形背景过渡</p>
+<pre><code class="has-line-data" data-line-start="312" data-line-end="336" class="language-css">  <span class="hljs-class">.card</span> <span class="hljs-class">.circle</span><span class="hljs-pseudo">::before</span><span class="hljs-rules">{
+    <span class="hljs-rule"><span class="hljs-attribute">content</span>:<span class="hljs-value"><span class="hljs-string">''</span></span></span>;
+    <span class="hljs-rule"><span class="hljs-attribute">position</span>:<span class="hljs-value"> absolute</span></span>;
+    <span class="hljs-rule"><span class="hljs-attribute">top</span>:<span class="hljs-value"><span class="hljs-number">0</span></span></span>;
+    <span class="hljs-rule"><span class="hljs-attribute">left</span>:<span class="hljs-value"><span class="hljs-number">0</span></span></span>;
+    <span class="hljs-rule"><span class="hljs-attribute">border-radius</span>:<span class="hljs-value"><span class="hljs-number">50%</span></span></span>;
+    <span class="hljs-rule"><span class="hljs-attribute">width</span>:<span class="hljs-value"><span class="hljs-number">350px</span></span></span>;
+    <span class="hljs-rule"><span class="hljs-attribute">height</span>:<span class="hljs-value"><span class="hljs-number">350px</span></span></span>;
+    <span class="hljs-rule"><span class="hljs-attribute">background</span>:<span class="hljs-value"> <span class="hljs-hexcolor">#191919</span></span></span>;
+    <span class="hljs-rule"><span class="hljs-attribute">border</span>:<span class="hljs-value"><span class="hljs-number">8px</span> solid <span class="hljs-function">var</span>(--clr)</span></span>;
+    <span class="hljs-rule"><span class="hljs-attribute">filter</span>:<span class="hljs-value"><span class="hljs-function">drop-shadow</span>(<span class="hljs-number">0</span> <span class="hljs-number">0</span> <span class="hljs-number">10px</span> <span class="hljs-function">var</span>(--clr)) <span class="hljs-function">drop-shadow</span>(<span class="hljs-number">0</span> <span class="hljs-number">0</span> <span class="hljs-number">60px</span> <span class="hljs-function">var</span>(--clr))</span></span>;
+    <span class="hljs-rule"><span class="hljs-attribute">transition</span>:<span class="hljs-value"> <span class="hljs-number">0.5s</span>,background0.<span class="hljs-number">5s</span></span></span>;
+    <span class="hljs-rule"><span class="hljs-attribute">transition-delay</span>:<span class="hljs-value"><span class="hljs-number">0.75s</span>,<span class="hljs-number">1s</span></span></span>;
+
+  }</span>
+  <span class="hljs-class">.card</span><span class="hljs-pseudo">:hover</span> <span class="hljs-class">.circle</span><span class="hljs-pseudo">::before</span> <span class="hljs-rules">{
+  <span class="hljs-rule"><span class="hljs-attribute">width</span>:<span class="hljs-value"> <span class="hljs-number">100%</span></span></span>;
+  <span class="hljs-rule"><span class="hljs-attribute">height</span>:<span class="hljs-value"> <span class="hljs-number">100%</span></span></span>;
+  <span class="hljs-rule"><span class="hljs-attribute">border-radius</span>:<span class="hljs-value"> <span class="hljs-number">20px</span></span></span>;
+  <span class="hljs-rule"><span class="hljs-attribute">background</span>:<span class="hljs-value"> <span class="hljs-function">var</span>(--clr)</span></span>;
+  <span class="hljs-rule"><span class="hljs-attribute">transition-delay</span>:<span class="hljs-value"> <span class="hljs-number">0.5s</span></span></span>;
+}</span>
+
+</code></pre>
+<p class="has-line-data" data-line-start="337" data-line-end="338">圆形元素的背景过渡效果由<code>::before</code>伪元素控制。当鼠标悬停在卡片上时，<code>::before</code>伪元素的宽度和高度会从350px过渡到100%（相当于圆形元素的宽度和高度）且圆角减低成<code>20px</code>，这样做是为了把card部分覆盖掉。背景色从初始的黑色过渡到定义的颜色<code>--clr</code>（在html中的style里设置）。过渡效果延迟0.75秒开始，背景颜色的过渡延迟1秒开始，这样的先后次序更有层次感</p>
+<p class="has-line-data" data-line-start="339" data-line-end="340">3、圆形内图标过渡</p>
+<pre><code class="has-line-data" data-line-start="342" data-line-end="347" class="language-css"><span class="hljs-class">.card</span><span class="hljs-pseudo">:hover</span> <span class="hljs-class">.circle</span> <span class="hljs-class">.logo</span> <span class="hljs-rules">{
+  <span class="hljs-rule"><span class="hljs-attribute">transform</span>:<span class="hljs-value"> <span class="hljs-function">scale</span>(<span class="hljs-number">0</span>)</span></span>;
+  <span class="hljs-rule"><span class="hljs-attribute">transition-delay</span>:<span class="hljs-value"> <span class="hljs-number">0s</span></span></span>;
+}</span>
+</code></pre>
+<p class="has-line-data" data-line-start="348" data-line-end="349">当鼠标悬停在卡片上时，圆形元素内的图标会从初始的原始大小（1倍）过渡到scale(0)，即消失，过渡效果立即开始。</p>
+<p class="has-line-data" data-line-start="350" data-line-end="351">4、图像的过渡</p>
+<pre><code class="has-line-data" data-line-start="353" data-line-end="370" class="language-css"><span class="hljs-class">.card</span> <span class="hljs-class">.img</span><span class="hljs-rules">{
+  <span class="hljs-rule"><span class="hljs-attribute">position</span>:<span class="hljs-value"> absolute</span></span>;
+  <span class="hljs-rule"><span class="hljs-attribute">top</span>:<span class="hljs-value"> <span class="hljs-number">50%</span></span></span>;
+  <span class="hljs-rule"><span class="hljs-attribute">left</span>:<span class="hljs-value"> <span class="hljs-number">50%</span></span></span>;
+  <span class="hljs-rule"><span class="hljs-attribute">transform</span>:<span class="hljs-value"> <span class="hljs-function">translate</span>(-<span class="hljs-number">50%</span>,-<span class="hljs-number">50%</span>)<span class="hljs-function">scale</span>(<span class="hljs-number">0</span>) <span class="hljs-function">rotate</span>(<span class="hljs-number">315deg</span>)</span></span>;
+  <span class="hljs-rule"><span class="hljs-attribute">height</span>:<span class="hljs-value"> <span class="hljs-number">270px</span></span></span>;
+  <span class="hljs-rule"><span class="hljs-attribute">transition</span>:<span class="hljs-value"> <span class="hljs-number">0.5s</span> ease-in-out</span></span>;
+}</span>
+
+<span class="hljs-class">.card</span><span class="hljs-pseudo">:hover</span> <span class="hljs-class">.img</span><span class="hljs-rules">{
+  <span class="hljs-rule"><span class="hljs-attribute">transition-delay</span>:<span class="hljs-value"> <span class="hljs-number">0.75s</span></span></span>;
+  <span class="hljs-rule"><span class="hljs-attribute">top</span>:<span class="hljs-value"><span class="hljs-number">50%</span></span></span>;
+  <span class="hljs-rule"><span class="hljs-attribute">left</span>:<span class="hljs-value"> <span class="hljs-number">72%</span></span></span>;
+  <span class="hljs-rule"><span class="hljs-attribute">height</span>:<span class="hljs-value"> <span class="hljs-number">500px</span></span></span>;
+  <span class="hljs-rule"><span class="hljs-attribute">transform</span>:<span class="hljs-value"> <span class="hljs-function">translate</span>(-<span class="hljs-number">50%</span>,-<span class="hljs-number">50%</span>) <span class="hljs-function">scale</span>(<span class="hljs-number">1</span>) <span class="hljs-function">rotate</span>(<span class="hljs-number">8deg</span>)</span></span>;
+}</span>
+</code></pre>
+<p class="has-line-data" data-line-start="371" data-line-end="372">图像在卡片中的位置和大小发生过渡。当鼠标悬停在卡片上时，图像会从初始的<code>scale(0)</code>过渡到<code>scale(1)</code>，即从不可见到可见状态。同时，图像的位置会从初始的垂直和水平居中过渡到垂直居中、水平偏右的位置,这样做为了不挡到文字内容。过渡效果延迟0.75秒开始。</p>
+<p class="has-line-data" data-line-start="373" data-line-end="374">5、内容的过渡</p>
+<pre><code class="has-line-data" data-line-start="376" data-line-end="390" class="language-css"><span class="hljs-class">.card</span> <span class="hljs-class">.content</span> <span class="hljs-rules">{
+  <span class="hljs-comment">/* ... */</span>
+  <span class="hljs-rule"><span class="hljs-attribute">opacity</span>:<span class="hljs-value"> <span class="hljs-number">0</span></span></span>;
+  <span class="hljs-comment">/* ... */</span>
+}</span>
+
+<span class="hljs-class">.card</span><span class="hljs-pseudo">:hover</span> <span class="hljs-class">.content</span> <span class="hljs-rules">{
+  <span class="hljs-comment">/* ... */</span>
+  <span class="hljs-rule"><span class="hljs-attribute">opacity</span>:<span class="hljs-value"> <span class="hljs-number">1</span></span></span>;
+  <span class="hljs-rule"><span class="hljs-attribute">visibility</span>:<span class="hljs-value"> visible</span></span>;
+  <span class="hljs-rule"><span class="hljs-attribute">left</span>:<span class="hljs-value"> <span class="hljs-number">20px</span></span></span>;
+}</span>
+
+</code></pre>
+<p class="has-line-data" data-line-start="391" data-line-end="393">当鼠标悬停在卡片上时，内容元素的透明度<code>opacity</code>从初始的0过渡到1，即从完全透明到完全可见。内容元素的位置从初始的<code>left: 20%</code>过渡到<code>left: 20px</code>，即向左移动。过渡效果延迟0.75秒开始即与图片的出现同步了。<br>
+最终效果如下：</p>
+<p class="has-line-data" data-line-start="394" data-line-end="395"><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/be85e41cdee4424f823ef250efac21d2~tplv-k3u1fbpfcp-zoom-1.image" alt="在这里插入图片描述"></p>
+<h3 class="code-line" data-line-start=396 data-line-end=397 ><a id="24__396"></a>2.4 喜爱的电影页面</h3>
+<h4 class="code-line" data-line-start=398 data-line-end=399 ><a id="241__398"></a>2.4.1 总体介绍</h4>
+<p class="has-line-data" data-line-start="400" data-line-end="401">该页面展示了我喜爱的电影</p>
+<h4 class="code-line" data-line-start=402 data-line-end=403 ><a id="242__402"></a>2.4.2 布局样式</h4>
+<pre><code class="has-line-data" data-line-start="405" data-line-end="443" class="language-html">  <span class="hljs-tag">&lt;<span class="hljs-title">header</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"container"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-title">h1</span>&gt;</span>My Favorite Movies<span class="hljs-tag">&lt;/<span class="hljs-title">h1</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-title">header</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">main</span>&gt;</span>
+        
+            <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">"banner"</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"slider"</span>&gt;</span>
+                  <span class="hljs-tag">&lt;<span class="hljs-title">img</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">"/assets/The_Boys.png"</span> <span class="hljs-attribute">alt</span>=<span class="hljs-value">"Image 1"</span>&gt;</span>
+                  <span class="hljs-tag">&lt;<span class="hljs-title">img</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">"/assets/jsc.jpg"</span> <span class="hljs-attribute">alt</span>=<span class="hljs-value">"Image 2"</span>&gt;</span>
+                  <span class="hljs-tag">&lt;<span class="hljs-title">img</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">"/assets/made.png"</span> <span class="hljs-attribute">alt</span>=<span class="hljs-value">"Image 3"</span>&gt;</span>
+                  <span class="hljs-tag">&lt;<span class="hljs-title">img</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">"/assets/Amsterdam.jpg"</span> <span class="hljs-attribute">alt</span>=<span class="hljs-value">"Image 4"</span>&gt;</span>
+                  <span class="hljs-tag">&lt;<span class="hljs-title">img</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">"/assets/la-la-land.jpg"</span> <span class="hljs-attribute">alt</span>=<span class="hljs-value">"Image 5"</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+              <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+
+        
+        <span class="hljs-tag">&lt;<span class="hljs-title">section</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">"movies"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"container"</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-title">h2</span>&gt;</span>My Baby<span class="hljs-tag">&lt;/<span class="hljs-title">h2</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"movie"</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-title">img</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">"./assets/LALALAND.jpg"</span> <span class="hljs-attribute">alt</span>=<span class="hljs-value">""</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-title">h3</span>&gt;</span>Movie1<span class="hljs-tag">&lt;/<span class="hljs-title">h3</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-title">a</span> <span class="hljs-attribute">herf</span>=<span class="hljs-value">"#"</span>&gt;</span>LALALAND<span class="hljs-tag">&lt;/<span class="hljs-title">a</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+           /*....*/
+           
+            <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+          
+        <span class="hljs-tag">&lt;/<span class="hljs-title">section</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-title">main</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">footer</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"container"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-title">p</span>&gt;</span>&amp;copy; 2023 movie web<span class="hljs-tag">&lt;/<span class="hljs-title">p</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-title">footer</span>&gt;</span>
+</code></pre>
+<p class="has-line-data" data-line-start="444" data-line-end="445">整个页面被分为了三个部分，从上到下展示标题、轮播图、具体电影卡片。</p>
+<pre><code class="has-line-data" data-line-start="447" data-line-end="465" class="language-css"><span class="hljs-id">#movies</span> <span class="hljs-class">.movie</span><span class="hljs-rules">{
+    <span class="hljs-rule"><span class="hljs-attribute">display</span>:<span class="hljs-value"> inline-block</span></span>;
+    <span class="hljs-rule"><span class="hljs-attribute">margin-right</span>:<span class="hljs-value"> <span class="hljs-number">20px</span></span></span>;
+    <span class="hljs-rule"><span class="hljs-attribute">margin-top</span>:<span class="hljs-value"> <span class="hljs-number">20px</span></span></span>;
+    <span class="hljs-rule"><span class="hljs-attribute">width</span>:<span class="hljs-value"> <span class="hljs-number">200px</span></span></span>;
+}</span>
+<span class="hljs-id">#movies</span> <span class="hljs-class">.movie</span> <span class="hljs-tag">img</span><span class="hljs-rules">{
+    <span class="hljs-rule"><span class="hljs-attribute">width</span>:<span class="hljs-value"> <span class="hljs-number">200px</span></span></span>;
+    <span class="hljs-rule"><span class="hljs-attribute">height</span>:<span class="hljs-value"> <span class="hljs-number">300px</span></span></span>;
+    <span class="hljs-rule"><span class="hljs-attribute">border-radius</span>:<span class="hljs-value"> <span class="hljs-number">5px</span></span></span>;
+    <span class="hljs-rule"><span class="hljs-attribute">object-fit</span>:<span class="hljs-value"> cover</span></span>;
+}</span>
+<span class="hljs-id">#movies</span> <span class="hljs-class">.movie</span> <span class="hljs-tag">img</span><span class="hljs-pseudo">:hover</span><span class="hljs-rules">{
+    <span class="hljs-rule"><span class="hljs-attribute">transition</span>:<span class="hljs-value"> .<span class="hljs-number">25s</span> ease-in-out</span></span>;
+    <span class="hljs-rule"><span class="hljs-attribute">transform</span>:<span class="hljs-value"> <span class="hljs-function">scale</span>(<span class="hljs-number">1.1</span>)</span></span>;
+
+}</span>
+</code></pre>
+<p class="has-line-data" data-line-start="466" data-line-end="467">电影项将以行内块元素的方式水平排列显示，每个电影项之间有 20px 的水平和垂直间距。电影海报图像的大小为 200px * 300px，显示为圆角，并在鼠标悬停时以缓慢的过渡效果放大 1.1 倍。</p>
+<ul>
+<li class="has-line-data" data-line-start="468" data-line-end="470">
+<p class="has-line-data" data-line-start="468" data-line-end="469"><code>#movies .movie</code> 选择器设置电影项的样式为内联块元素（<code>display: inline-block</code>），这样电影项会水平排列，并保持块元素的特性。设置右外边距为 20px 和上外边距为 20px，为电影项之间创建一定的间距。</p>
+</li>
+<li class="has-line-data" data-line-start="470" data-line-end="472">
+<p class="has-line-data" data-line-start="470" data-line-end="471">设置<code>#movies .movie img</code> 选择器使得电影海报图像的样式使用 <code>object-fit: cover</code> 属性确保图像可以等比例缩放并<strong><em>填充整个图像框</em></strong>。</p>
+</li>
+<li class="has-line-data" data-line-start="472" data-line-end="474">
+<p class="has-line-data" data-line-start="472" data-line-end="473"><code>#movies .movie img:hover</code> 鼠标悬停在电影海报图像上时的效果。使用了过渡效果 <code>transition</code>，过渡时间为 0.25s，过渡速度为缓入缓出（<code>ease-in-out</code>）。</p>
+</li>
+<li class="has-line-data" data-line-start="474" data-line-end="476">
+<p class="has-line-data" data-line-start="474" data-line-end="475">通过 <code>transform</code> 属性的 <code>scale(1.1)</code> 缩放图像大小，使图像放大 1.1 倍，实现了悬停放大的效果。</p>
+</li>
+</ul>
+<h4 class="code-line" data-line-start=476 data-line-end=477 ><a id="243__476"></a>2.4.3 轮播图实现</h4>
+<pre><code class="has-line-data" data-line-start="479" data-line-end="490" class="language-html"><span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">"banner"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"slider"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">img</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">"/assets/The_Boys.png"</span> <span class="hljs-attribute">alt</span>=<span class="hljs-value">"Image 1"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">img</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">"/assets/jsc.jpg"</span> <span class="hljs-attribute">alt</span>=<span class="hljs-value">"Image 2"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">img</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">"/assets/made.png"</span> <span class="hljs-attribute">alt</span>=<span class="hljs-value">"Image 3"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">img</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">"/assets/Amsterdam.jpg"</span> <span class="hljs-attribute">alt</span>=<span class="hljs-value">"Image 4"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">img</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">"/assets/la-la-land.jpg"</span> <span class="hljs-attribute">alt</span>=<span class="hljs-value">"Image 5"</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+
+</code></pre>
+<p class="has-line-data" data-line-start="491" data-line-end="492">在HTML中，创建了一个包含轮播图的容器，使用id=&quot;banner&quot;来标识该容器。轮播图的图片被包裹在具有class=&quot;slider&quot;的<code>&lt;div&gt;</code>元素中，并使用<code>&lt;img&gt;</code>标签添加了多个图片，每个图片都有一个src属性指向不同的图片路径，以及一个alt属性用于图像无法加载时的替代文本。</p>
+<pre><code class="has-line-data" data-line-start="494" data-line-end="500" class="language-js"><span class="hljs-built_in">document</span>.addEventListener(<span class="hljs-string">'DOMContentLoaded'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+  showImage(<span class="hljs-number">0</span>);
+  setInterval(nextImage, <span class="hljs-number">3000</span>);
+});
+
+</code></pre>
+<p class="has-line-data" data-line-start="501" data-line-end="502">在JavaScript中，通过监听<code>DOMContentLoaded</code>事件来确保<code>DOM</code>已完全加载后执行代码。在事件处理程序中，首先调用<code>showImage(0)</code>来显示第一张图片，然后使用<code>setInterval</code>函数设置一个定时器，每隔3秒调用<code>nextImage</code>函数，实现自动切换图片的效果，这个过程实现的是刚进入页面显示图片的功能。</p>
+<pre><code class="has-line-data" data-line-start="504" data-line-end="526" class="language-js"><span class="hljs-keyword">const</span> slider = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'.slider'</span>);
+<span class="hljs-keyword">const</span> images = slider.getElementsByTagName(<span class="hljs-string">'img'</span>);
+<span class="hljs-keyword">let</span> currentIndex = <span class="hljs-number">0</span>;
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">showImage</span>(<span class="hljs-params">index</span>) </span>{
+  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; images.length; i++) {
+    images[i].classList.remove(<span class="hljs-string">'active'</span>);
+  }
+  images[index].classList.add(<span class="hljs-string">'active'</span>);
+}
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">nextImage</span>(<span class="hljs-params"></span>) </span>{
+  currentIndex++;
+  <span class="hljs-keyword">if</span> (currentIndex &gt;= images.length) {
+    currentIndex = <span class="hljs-number">0</span>;
+  }
+  showImage(currentIndex);
+}
+
+setInterval(nextImage, <span class="hljs-number">3000</span>);
+
+</code></pre>
+<p class="has-line-data" data-line-start="527" data-line-end="528">使用<code>querySelector</code>选择器获取具有<code>class=&quot;slider&quot;</code>的容器元素，并将其赋值给变量<code>slider</code>。然后，使用<code>slider.getElementsByTagName('img')</code>获取所有图片元素，并将其赋值给变量images。</p>
+<p class="has-line-data" data-line-start="529" data-line-end="530">接着定义两个函数：<code>showImage</code>和<code>nextImage</code>。<code>showImage</code>函数用于显示指定索引的图片，遍历所有图片元素，并为当前索引的图片添加<code>active</code>类，同时移除其他图片的<code>active</code>类，从而控制显示当前图片。<code>nextImage</code>函数用于切换到下一张图片，它通过递增<code>currentIndex</code>变量实现，如果<code>currentIndex</code>超出了图片数组的长度，将其重置为0，然后调用showImage函数显示对应索引的图片。</p>
+<p class="has-line-data" data-line-start="531" data-line-end="532">最后，使用<code>setInterval</code>函数每隔3秒调用一次<code>nextImage</code>函数，实现自动切换图片的效果。</p>
+<p class="has-line-data" data-line-start="533" data-line-end="534">通过上述代码，实现了一个简单的轮播图功能。</p>
+<h3 class="code-line" data-line-start=535 data-line-end=536 ><a id="25__535"></a>2.5 喜欢的风景</h3>
+<h4 class="code-line" data-line-start=537 data-line-end=538 ><a id="251__537"></a>2.5.1 滚动页面动画实现</h4>
+<pre><code class="has-line-data" data-line-start="540" data-line-end="550" class="language-html"><span class="hljs-tag">&lt;<span class="hljs-title">section</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"parallax"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">img</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">"./assets/hill12.jpg"</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">"hill1"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">img</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">"hill3.png"</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">"hill3"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">img</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">"./assets/and.png"</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">"hill4"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">img</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">"./assets/and2.png"</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">"hill5"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">h2</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">"text"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">h2</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">img</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">"leaf.png"</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">"leaf"</span>&gt;</span>
+        <span class="hljs-comment">&lt;!-- &lt;img src="plant.png" id="plant"&gt; --&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-title">section</span>&gt;</span>
+</code></pre>
+<pre><code class="has-line-data" data-line-start="552" data-line-end="569" class="language-js"><span class="hljs-keyword">let</span> text = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'text'</span>);
+<span class="hljs-keyword">let</span> leaf = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'leaf'</span>);
+<span class="hljs-keyword">let</span> hill1 = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'hill1'</span>);
+<span class="hljs-keyword">let</span> hill4 = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'hill4'</span>);
+<span class="hljs-keyword">let</span> hill5 = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'hill5'</span>);
+
+<span class="hljs-built_in">window</span>.addEventListener(<span class="hljs-string">'scroll'</span>, () =&gt; {
+    <span class="hljs-keyword">let</span> value = <span class="hljs-built_in">window</span>.scrollY;
+
+    text.style.marginTop = value * <span class="hljs-number">1.5</span> + <span class="hljs-string">'px'</span>;
+    leaf.style.top = value * -<span class="hljs-number">1.5</span> + <span class="hljs-string">'px'</span>;
+    leaf.style.left = value * <span class="hljs-number">1.5</span> + <span class="hljs-string">'px'</span>;
+    hill5.style.left = value * <span class="hljs-number">1.5</span> + <span class="hljs-string">'px'</span>;
+    hill4.style.left = value * -<span class="hljs-number">1.5</span> + <span class="hljs-string">'px'</span>;
+    hill1.style.top = value * <span class="hljs-number">0.5</span> + <span class="hljs-string">'px'</span>;
+});
+</code></pre>
+<p class="has-line-data" data-line-start="570" data-line-end="571">思路在于利用滚动事件和元素的样式修改来实现动态效果。通过适当调整样式属性的变化速率和方向，实现不同元素在滚动过程中以不同速度和方向移动，从而创造出更加生动的滚动效果。</p>
+<p class="has-line-data" data-line-start="572" data-line-end="573">通过<code>document.getElementById</code>方法获取了具有相应id的元素，并将它们分别赋值给变量<code>text</code>、<code>leaf</code>、<code>hill1</code>、<code>hill4</code>和<code>hill5</code></p>
+<p class="has-line-data" data-line-start="574" data-line-end="575">在窗口上添加了一个<code>scroll</code>事件监听器。每当用户滚动页面时，触发该事件处理函数。在处理函数中，首先通过<code>window.scrollY</code>·获取当前滚动的垂直距离，并将其赋值给变量value。</p>
+<p class="has-line-data" data-line-start="576" data-line-end="577">然后，通过修改各元素的样式，根据value的值来实现滚动效果。具体来说：</p>
+<p class="has-line-data" data-line-start="578" data-line-end="587">text.style.marginTop = value * 1.5 + ‘px’;：根据滚动距离调整text元素的<strong>顶部边距</strong>，以实现<strong>向下移动</strong>的效果。<br>
+leaf.style.top = value * -1.5 + ‘px’;：根据滚动距离调整leaf元素的<strong>顶部</strong>位置，以实现<strong>向上移动</strong>的效果。<br>
+leaf.style.left = value * 1.5 + ‘px’;：根据滚动距离调整leaf元素的<strong>左侧</strong>位置，以实现<strong>向右移动</strong>的效果。<br>
+hill5.style.left = value * 1.5 + ‘px’;：根据滚动距离调整hill5元素的<strong>左侧位置</strong>，以实现<strong>向右移动</strong>的效果。<br>
+hill4.style.left = value * -1.5 + ‘px’;：根据滚动距离调整hill4元素的<strong>左侧位置</strong>，以实现<strong>向左移动</strong>的效果。<br>
+hill1.style.top = value * 0.5 + ‘px’;：根据滚动距离调整hill1元素的<strong>顶部位置</strong>，以实现<strong>向下移动</strong>的效果。<br>
+通过改变元素的样式属性，随着滚动事件的触发，元素将相应地移动，从而产生视差效果。<br>
+最终效果图如下：<br>
+<img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6a71ffca00414d14b2127f6cd6f9ed89~tplv-k3u1fbpfcp-zoom-1.image" alt="在这里插入图片描述"></p>
+<h3 class="code-line" data-line-start=588 data-line-end=589 ><a id="26__588"></a>2.6 喜欢的城市页面</h3>
+<h4 class="code-line" data-line-start=590 data-line-end=591 ><a id="261__590"></a>2.6.1 固定侧边栏</h4>
+<pre><code class="has-line-data" data-line-start="593" data-line-end="607" class="language-html">    <span class="hljs-comment">&lt;!-- 滚动监听的固定侧边栏 --&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"slider-bar"</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">"slider-bar"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-title">ul</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"navbar-nav mr-auto "</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-title">li</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"nav-item mx-lg-4"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">a</span> <span class="hljs-attribute">href</span>=<span class="hljs-value">"#introduce1"</span>
+                        <span class="hljs-attribute">class</span>=<span class="hljs-value">"nav-link active"</span>&gt;</span>西安简介<span class="hljs-tag">&lt;/<span class="hljs-title">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-title">li</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"nav-item mx-lg-4"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">a</span> <span class="hljs-attribute">href</span>=<span class="hljs-value">"#introduce2"</span>
+                        <span class="hljs-attribute">class</span>=<span class="hljs-value">"nav-link"</span>&gt;</span>西安美食<span class="hljs-tag">&lt;/<span class="hljs-title">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-title">li</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"nav-item mx-lg-4"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">a</span> <span class="hljs-attribute">href</span>=<span class="hljs-value">"#introduce3"</span>
+                        <span class="hljs-attribute">class</span>=<span class="hljs-value">"nav-link"</span>&gt;</span>西安风景<span class="hljs-tag">&lt;/<span class="hljs-title">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-title">li</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"nav-item mx-lg-4"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">a</span> <span class="hljs-attribute">href</span>=<span class="hljs-value">"#introduce4"</span>
+                        <span class="hljs-attribute">class</span>=<span class="hljs-value">"nav-link"</span>&gt;</span>西安服饰<span class="hljs-tag">&lt;/<span class="hljs-title">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-title">ul</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+</code></pre>
+<pre><code class="has-line-data" data-line-start="609" data-line-end="626" class="language-html">&lt;div class="row py-5 border-bottom" id="introduce1"&gt;
+                &lt;div class="col-md-4"&gt;
+                    &lt;img src="img/xian3.jpg" class="w-100"&gt;
+                &lt;/div&gt;
+                &lt;div class="col-md-8"&gt;
+                    &lt;h1西安简介&lt;/h1&gt;
+                    &lt;p class="text-secondary"&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;西安是中国历史上的重要古都之一，拥有悠久而丰富的历史背景。以下是一个简单的西安历史简介：
+
+                        西安，古称长安，位于中国陕西省中部。作为中国历史上最早的首都之一，西安拥有超过3100年的历史。在漫长的历史长河中，西安扮演了重要的角色，见证了多个王朝的兴衰和社会变革的发展。
+                        
+                        西安最早的历史可以追溯到公元前11世纪的周朝时期，当时它是西周王朝的首都。随后，西安成为了秦朝的首都，始皇帝秦始皇在这里统一了中国并建立了中国的第一个封建王朝。秦始皇兵马俑的发现也让西安成为世界著名的考古遗址之一。
+                    &lt;/p&gt;
+                    
+                &lt;/div&gt;
+            &lt;/div&gt;
+
+</code></pre>
+<p class="has-line-data" data-line-start="627" data-line-end="628">这段代码实现了一个滚动监听的固定侧边栏。具体功能如下：</p>
+<ol>
+<li class="has-line-data" data-line-start="629" data-line-end="631">
+<p class="has-line-data" data-line-start="629" data-line-end="630">需要先固定的侧边栏，其父元素具有 <code>slider-bar</code> 类名，其 id 为 <code>slider-bar</code>。</p>
+</li>
+<li class="has-line-data" data-line-start="631" data-line-end="634">
+<p class="has-line-data" data-line-start="631" data-line-end="633">侧边栏中有一个无序列表，具有不同的链接和文本内容<code>&lt;a href=&quot;#introduce1&quot; class=&quot;nav-link active&quot;&gt;西安简介&lt;/a&gt;</code>。</p>
+</li>
+<li class="has-line-data" data-line-start="634" data-line-end="637">
+<p class="has-line-data" data-line-start="634" data-line-end="636">页面上有一个具有 <code>introduce1</code> id 的元素，就是用于前面的链接实现页面内内容区域的跳转。效果如下：<br>
+<img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5bba520848364f0ab65f9c760fd4af51~tplv-k3u1fbpfcp-zoom-1.image" alt="在这里插入图片描述"></p>
+</li>
+<li class="has-line-data" data-line-start="637" data-line-end="640">
+<p class="has-line-data" data-line-start="637" data-line-end="639"><code>introduce1</code> 元素包含两个子元素，分别是一个占据四分之一宽度的图片和一个占据四分之三宽度的文本区域。效果如下：<br>
+<img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6dfabfde4a344c1ea6f4d65442134a77~tplv-k3u1fbpfcp-zoom-1.image" alt="在这里插入图片描述"></p>
+</li>
+</ol>
+<p class="has-line-data" data-line-start="640" data-line-end="641">效果是在页面上创建一个固定的侧边栏，并且在滚动页面时，侧边栏项的样式会根据当前所在的部分而变化，以提供导航和视觉提示。</p>
+<h2 class="code-line" data-line-start=642 data-line-end=643 ><a id="3_642"></a>3.问题解决</h2>
+<h3 class="code-line" data-line-start=644 data-line-end=645 ><a id="31__644"></a>3.1 页面跳转</h3>
+<p class="has-line-data" data-line-start="646" data-line-end="648">开始我使用 Fetch API 异步加载并返回 .html 文件的内容，但是这样做略微复杂，且很多次导致布局的问题以及空白页面的问题。<br>
+后来我改成了根据传入的参数 page 的值，通过修改 pageContent.data 属性来加载不同的 HTML 文件内容来解决了问题。具体代码如下：</p>
+<pre><code class="has-line-data" data-line-start="650" data-line-end="654" class="language-html">  <span class="hljs-tag">&lt;<span class="hljs-title">li</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-title">a</span> <span class="hljs-attribute">href</span>=<span class="hljs-value">"javascript:void(0)"</span> <span class="hljs-attribute">onclick</span>=<span class="hljs-value">"loadPage('food')"</span>&gt;</span> <span class="hljs-tag">&lt;<span class="hljs-title">i</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">'bx bx-video-recording bx-tada'</span> &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">i</span>&gt;</span>喜欢的食品<span class="hljs-tag">&lt;/<span class="hljs-title">a</span>&gt;</span> <span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-title">li</span>&gt;</span>
+</code></pre>
+<pre><code class="has-line-data" data-line-start="656" data-line-end="671" class="language-js"> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">loadPage</span>(<span class="hljs-params">page</span>) </span>{
+      <span class="hljs-keyword">var</span> pageContent = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'pageContent'</span>);
+      
+      <span class="hljs-keyword">if</span> (page === <span class="hljs-string">'home'</span>) {
+        pageContent.data = <span class="hljs-string">'taylor.html'</span>;
+      } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (page === <span class="hljs-string">'about'</span>) {
+        pageContent.data = <span class="hljs-string">'Movies.html'</span>;
+      } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (page === <span class="hljs-string">'contact'</span>) {
+        pageContent.data = <span class="hljs-string">'Views.html'</span>;
+      }
+      <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (page === <span class="hljs-string">'food'</span>) {
+        pageContent.data = <span class="hljs-string">'food.html'</span>;
+      }
+    }
+</code></pre>
+<p class="has-line-data" data-line-start="672" data-line-end="673">两种跳转页面的方法各有各的，而这种页面跳转方式的好处在于简洁、直观，适用于简单的静态页面加载。不需要额外的异步请求和处理逻辑，可以直接通过修改属性来完成页面跳转。对于一些简单的页面跳转需求，这种方式更加方便快捷。</p>
+<h3 class="code-line" data-line-start=674 data-line-end=675 ><a id="32_hover_674"></a>3.2 hover效果重复</h3>
+<p class="has-line-data" data-line-start="676" data-line-end="677">这是修改后的hover效果图：</p>
+<p class="has-line-data" data-line-start="678" data-line-end="679"><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f5dd39ae3aa74e1bbf2ca1df883f4046~tplv-k3u1fbpfcp-zoom-1.image" alt="在这里插入图片描述"></p>
+<p class="has-line-data" data-line-start="680" data-line-end="681"><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f825cfff8e944304b3d7157bdcd451b7~tplv-k3u1fbpfcp-zoom-1.image" alt="在这里插入图片描述"></p>
+<p class="has-line-data" data-line-start="682" data-line-end="683"><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f5af686a160b45a99e0917ff97f1883e~tplv-k3u1fbpfcp-zoom-1.image" alt="在这里插入图片描述"></p>
+<p class="has-line-data" data-line-start="684" data-line-end="685"><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7b1023d0dbc94d02b7b4f3f61aea0603~tplv-k3u1fbpfcp-zoom-1.image" alt="在这里插入图片描述"></p>
+<p class="has-line-data" data-line-start="686" data-line-end="687"><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/07f18cd49d034d1b8cad3e06fc6daa20~tplv-k3u1fbpfcp-zoom-1.image" alt="在这里插入图片描述"></p>
+<p class="has-line-data" data-line-start="688" data-line-end="689">每一个选项的hover效果都有颜色的变化，为了实现这一效果如果使用逐个定义样式的方法将过于繁琐与重复，因此我使用了课堂上讲过的一个方法进行快速设置hover的不同效果：</p>
+<pre><code class="has-line-data" data-line-start="691" data-line-end="707" class="language-css"><span class="hljs-tag">li</span><span class="hljs-pseudo">:nth-of-type(1)</span> <span class="hljs-tag">a</span><span class="hljs-pseudo">:hover</span> <span class="hljs-rules">{
+  <span class="hljs-rule"><span class="hljs-attribute">background-color</span>:<span class="hljs-value"> <span class="hljs-hexcolor">#d60c0c</span></span></span>;
+}</span>
+<span class="hljs-tag">li</span><span class="hljs-pseudo">:nth-of-type(2)</span> <span class="hljs-tag">a</span><span class="hljs-pseudo">:hover</span> <span class="hljs-rules">{
+  <span class="hljs-rule"><span class="hljs-attribute">background-color</span>:<span class="hljs-value"> <span class="hljs-hexcolor">#13a40e</span></span></span>;
+}</span>
+<span class="hljs-tag">li</span><span class="hljs-pseudo">:nth-of-type(3)</span> <span class="hljs-tag">a</span><span class="hljs-pseudo">:hover</span> <span class="hljs-rules">{
+  <span class="hljs-rule"><span class="hljs-attribute">background-color</span>:<span class="hljs-value"> <span class="hljs-hexcolor">#63c7f2</span></span></span>;
+}</span>
+<span class="hljs-tag">li</span><span class="hljs-pseudo">:nth-of-type(4)</span> <span class="hljs-tag">a</span><span class="hljs-pseudo">:hover</span> <span class="hljs-rules">{
+  <span class="hljs-rule"><span class="hljs-attribute">background-color</span>:<span class="hljs-value"> <span class="hljs-hexcolor">#e433f4</span></span></span>;
+}</span>
+<span class="hljs-tag">li</span><span class="hljs-pseudo">:nth-of-type(5)</span> <span class="hljs-tag">a</span><span class="hljs-pseudo">:hover</span> <span class="hljs-rules">{
+  <span class="hljs-rule"><span class="hljs-attribute">background-color</span>:<span class="hljs-value"> <span class="hljs-hexcolor">#f3e708</span></span></span>;
+}</span>
+</code></pre>
+<p class="has-line-data" data-line-start="708" data-line-end="712">使用 CSS 伪类选择器 <code>:nth-of-type()</code>，用于选择同类型的元素中的特定位置的元素。使用 <code>:nth-of-type()</code> 来快速选择列表中的不同位置的列表项（<code>&lt;li&gt;</code> 元素）。<br>
+<code>li:nth-of-type(1)</code> 表示选择列表中第一个 <code>&lt;li&gt;</code> 元素，<code>li:nth-of-type(2)</code> 表示选择列表中第二个 <code>&lt;li&gt;</code> 元素，以此类推。<br>
+<code>a:hover</code>也是一个伪类选择器，它用于选择鼠标悬停在链接上的状态。当鼠标悬停在链接上时，应用 <code>:hover</code> 选择器的样式效果。<br>
+所以，通过将 <code>:hover</code> 伪类选择器与 <code>:nth-of-type()</code> 结合使用，可以为不同位置的列表项的链接设置不同的鼠标悬停效果，即改变链接的背景颜色。</p>
+<p class="has-line-data" data-line-start="713" data-line-end="714">其中通过改变内边距的大小，增大了hover效果，使得hover效果的框比文字稍大一些：</p>
+<pre><code class="has-line-data" data-line-start="716" data-line-end="721" class="language-css"><span class="hljs-tag">nav</span> <span class="hljs-tag">li</span> <span class="hljs-tag">a</span> <span class="hljs-rules">{
+        <span class="hljs-rule"><span class="hljs-attribute">font-size</span>:<span class="hljs-value"> <span class="hljs-number">16px</span></span></span>;
+         <span class="hljs-rule"><span class="hljs-attribute">padding</span>:<span class="hljs-value"> <span class="hljs-number">8px</span></span></span>; <span class="hljs-comment">/*增大hover效果的面积 */</span>
+    }</span>
+</code></pre>
+<h3 class="code-line" data-line-start=722 data-line-end=723 ><a id="33__722"></a>3.3 主内容区占不满</h3>
+<p class="has-line-data" data-line-start="724" data-line-end="725">这属于一个很小的问题，在这里也做一个简单的总结：</p>
+<pre><code class="has-line-data" data-line-start="727" data-line-end="733" class="language-css"> <span class="hljs-id">#mainContent</span> <span class="hljs-rules">{
+    <span class="hljs-rule"><span class="hljs-attribute">position</span>:<span class="hljs-value"> relative</span></span>;
+    <span class="hljs-rule"><span class="hljs-attribute">background-color</span>:<span class="hljs-value"> <span class="hljs-hexcolor">#f4f4f4</span></span></span>;
+    <span class="hljs-rule"><span class="hljs-attribute">height</span>:<span class="hljs-value"> <span class="hljs-function">calc</span>(<span class="hljs-number">100vh</span> - <span class="hljs-number">50px</span>)</span></span>; <span class="hljs-comment">/* 计算主内容区的高度为视口高度减去导航栏的高度 */</span>
+}</span>
+</code></pre>
+<p class="has-line-data" data-line-start="734" data-line-end="735">解决思路即通过计算设置出主内容区的区域所占高度为满视图减去50px即导航栏的高度。</p>
+<h3 class="code-line" data-line-start=736 data-line-end=737 ><a id="34__736"></a>3.4 轮播图问题</h3>
+<p class="has-line-data" data-line-start="738" data-line-end="739">通过简单的js逻辑可以实现轮播图的效果，首先，通过<code>document.querySelector('.slider')</code>获取到页面中具有<code>slider</code>类名的元素，然后通过<code>slider.getElementsByTagName('img')</code>获取到该元素下的所有<code>img</code>标签。然后，定义了一个变量<code>currentIndex</code>来表示当前显示的图片的索引，默认为0，在设置定时器后，遍历索引，在索引超过图片数量时，将<code>currentIndex</code>重置为0。</p>
+<p class="has-line-data" data-line-start="740" data-line-end="741">但是会出现进入页面后没有显示任何图片，需要等一会才能显示出第一张图片，因此我在js代码前面补充了一个事件的监听器</p>
+<pre><code class="has-line-data" data-line-start="743" data-line-end="749" class="language-js"> <span class="hljs-comment">// 解决了刚进去显示不了图片的问题</span>
+        <span class="hljs-built_in">document</span>.addEventListener(<span class="hljs-string">'DOMContentLoaded'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+  showImage(<span class="hljs-number">0</span>);
+  setInterval(nextImage, <span class="hljs-number">3000</span>);
+});
+</code></pre>
+<p class="has-line-data" data-line-start="750" data-line-end="751">这段代码使用了<code>DOMContentLoaded</code>事件监听器来确保在<strong><em>页面加载完毕后</em></strong>执行代码。在页面加载完毕后，调用<code>showImage(0)</code>函数来显示第一张图片，并使用<code>setInterval</code>函数每隔3秒钟调用<code>nextImage</code>函数，实现自动切换图片的效果。</p>
+<h3 class="code-line" data-line-start=752 data-line-end=753 ><a id="35__752"></a>3.5 跳转页面影响对齐问题</h3>
+<p class="has-line-data" data-line-start="754" data-line-end="755">该问题是在做项目的过程中前期的遇到的问题，前期我使用到是侧边栏进行与用户交互，然后再侧边栏的右边区域显示跳转的页面，这时就遇到了跳转后页面空白和跳转后侧边栏与主内容区不对齐的问题。</p>
+<p class="has-line-data" data-line-start="756" data-line-end="758">关于页面空白的解决方案是：<br>
+根据您的描述，将侧边栏页面的<code>body</code>样式中的<code>display: flex;</code>、<code>justify-content: center;</code>和<code>align-items: center;</code>删除后，跳转到的<code>.html</code>可以在主内容区正常展示。</p>
+<p class="has-line-data" data-line-start="759" data-line-end="760">这是因为<code>display: flex;</code>与<code>justify-content: center;</code>和<code>align-items: center;</code>属性组合在一起，会使<code>body</code>元素成为一个弹性容器，并将其内部的子元素在水平和垂直方向上居中显示。这可能导致<code>body</code>元素占据整个可视窗口的高度，从而覆盖主内容区域。</p>
+<p class="has-line-data" data-line-start="761" data-line-end="762">通过删除这些样式，<code>body</code>元素将恢复其默认的块级元素行为，并且不会影响其他元素的布局。因此，<code>.html</code>可以在主内容区正常展示，不再被<code>body</code>元素的样式所影响。</p>
+<p class="has-line-data" data-line-start="763" data-line-end="764">关于页面不对齐的问题：</p>
+<pre><code class="has-line-data" data-line-start="766" data-line-end="773" class="language-css"><span class="hljs-class">.home-section</span> <span class="hljs-rules">{
+      <span class="hljs-rule"><span class="hljs-attribute">background</span>:<span class="hljs-value"> <span class="hljs-function">var</span>(--home-bgCololr)</span></span>;
+      <span class="hljs-rule"><span class="hljs-attribute">display</span>:<span class="hljs-value"> flex</span></span>;
+    <span class="hljs-rule"><span class="hljs-attribute">flex-direction</span>:<span class="hljs-value"> column</span></span>;
+    <span class="hljs-rule"><span class="hljs-attribute">height</span>:<span class="hljs-value"> auto</span></span>; <span class="hljs-comment">/*解决了跳转后页面不对齐问题 */</span>
+    }</span>
+</code></pre>
+<p class="has-line-data" data-line-start="774" data-line-end="775">我将主内容区的高度设置成auto，即解决了该问题。</p>
+<h3 class="code-line" data-line-start=776 data-line-end=777 ><a id="36__776"></a>3.6 图片去背景</h3>
+<p class="has-line-data" data-line-start="778" data-line-end="781">为了解决图片背景造成的美化问题，我使用了下面的网站进行图片的去背景化：<br>
+<code>https://www.remove.bg/upload?full_image_id=bc24c020-2962-4bb3-966c-6a0142b4fe06</code><br>
+在专辑页面与风景页面都有所应用。</p>
+<h2 class="code-line" data-line-start=782 data-line-end=783 ><a id="4__782"></a>4 未解决的问题</h2>
+<h3 class="code-line" data-line-start=784 data-line-end=785 ><a id="41__784"></a>4.1 侧边栏跳转后展示不全</h3>
+<p class="has-line-data" data-line-start="786" data-line-end="787">一些页面在跳转后会出现展示了一部分的问题，如下图所示，因此后来我换成了顶部导航栏，但侧边栏出现的这个情况还未解决。</p>
+<p class="has-line-data" data-line-start="788" data-line-end="789"><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/bf99474601ca4815af01f183f013c521~tplv-k3u1fbpfcp-zoom-1.image" alt="在这里插入图片描述"></p>
+<h3 class="code-line" data-line-start=790 data-line-end=791 ><a id="42__790"></a>4.2 轮播图图片拉伸</h3>
+<p class="has-line-data" data-line-start="792" data-line-end="793">轮播图的板块无法解决图片展示时出现拉伸的情况，最终只能将轮播图区域的高度调高，以适应大多数图片的展示情况。</p>
+<h2 class="code-line" data-line-start=794 data-line-end=795 ><a id="5__794"></a>5 项目总结</h2>
+<p class="has-line-data" data-line-start="796" data-line-end="797">本次项目我做了一个关于“我喜欢的”为主题的静态网站项目，在制作的过程中，从开始的分析阶段到实现过程中的不断的试错阶段都提升了我的前端设计与编码能力，熟悉了相关属性的作用以及样式的含义，再加上JavaScript的逻辑部分的实现，可以巧妙地制作出我想要的效果（比如专辑页面的动画效果，看似复杂实则是两个不同形状卡片的切换过渡，与图片的样式透明度设置）。利用切换时间的设置不同以实现最终的效果。还有在想到要实现一个图片移动的效果时，可以换个角度考虑，以图片跟父元素之间的距离为出发点，调整他们的距离，移动的方向就是相反的，将这个思路写到JavaScript里面就实现了图片的移动效果。而“电影模块”的轮播图实现，则通过查阅相关资料了解一些比较系统的解决方案后，再进行的一个设计，虽然存在一些问题比如轮播图中的图片有时会拉伸严重，造成美观上的不足，因此我只能调高其高度来实现拉伸的减缓，但这样就会显得轮播图很巨大。</p>
+<p class="has-line-data" data-line-start="798" data-line-end="799">但还有很多不足之处，比如页面的美化、文字部分的美化、布局还可以优化以及页面切换时的平滑效果，轮播图没有设计箭头的效果，用户无法自己切换轮播图。这些方面和市面上的网页设计还是存在一定的差距，因此还需要继续努力的改进。</p>
+<p class="has-line-data" data-line-start="800" data-line-end="801">而针对这些相关的问题，我也想到一些解决方案与展望：</p>
+<ul>
+<li class="has-line-data" data-line-start="802" data-line-end="804">
+<p class="has-line-data" data-line-start="802" data-line-end="803">关于页面美化：考虑使用合适的配色方案（ColorDrop网站，虽然这次有用到但是用的不够）和字体组合来提升整体的美观度。参考一些优秀的网站设计以及色彩理论来选择合适的颜色搭配。此外，使用吸引人的高质量图片作为背景或插图也可以提升网站的外观。</p>
+</li>
+<li class="has-line-data" data-line-start="804" data-line-end="806">
+<p class="has-line-data" data-line-start="804" data-line-end="805">关于文字美化：选择适合网站风格的字体，并为标题、段落和链接等元素应用合适的样式，如字体大小、行高和字间距。可以使用CSS的文本属性来实现这些效果。</p>
+</li>
+<li class="has-line-data" data-line-start="806" data-line-end="808">
+<p class="has-line-data" data-line-start="806" data-line-end="807">关于布局优化：本次弹性布局使用的比较多，但使用网格系统或弹性盒子布局也可以更好地控制页面的布局。应该熟练掌握这两种布局方式。</p>
+</li>
+<li class="has-line-data" data-line-start="808" data-line-end="810">
+<p class="has-line-data" data-line-start="808" data-line-end="809">平滑过渡效果：通过使用CSS过渡或动画来实现页面切换时的平滑过渡效果。这些过渡效果可以为用户提供更好的视觉体验，并增强网站的专业感。</p>
+</li>
+<li class="has-line-data" data-line-start="810" data-line-end="812">
+<p class="has-line-data" data-line-start="810" data-line-end="811">轮播图改进：考虑添加箭头按钮或指示器来让用户自己切换轮播图。这样用户可以根据自己的喜好自由浏览图片。同时，为了确保轮播图中的图片不会拉伸变形，以后可以尝试使用适当的图片大小或裁剪图片来适应轮播图的尺寸。</p>
+</li>
+</ul>
+<p class="has-line-data" data-line-start="812" data-line-end="813">所以继续努力改进你的网站是非常重要，不断学习和尝试新的设计和编码技术，关注用户的反馈，并寻求灵感和参考于其他优秀的网站设计，来不断提升你的网站的质量和用户体验。</p>
+</body>
+</html>

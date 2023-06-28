@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Login</title>
+    <link rel="stylesheet" href="./stlye/style.css" />
+  </head>
+  <body>
+    <section>
+      <div class="container">
+        <div id="scene">
+         
+          <div class="layer" data-depth-x="0.15">
+            <img src="./assets/lavender.png" class="lavender"/>
+          </div>
+    
+        </div>
+      </div>
+      <div class="login" data-depth-x="-0.25">
+        <h2>登录</h2>
+        <div class="inputBox"><input type="text" placeholder="直接点击登录即可"</div>
+        <div class="inputBox"><input type="password" placeholder="直接点击登录即可"</div>
+        <div class="inputBox">
+          <input type="submit" value="登入" id="btn" />
+        </div>
+        <div class="group">
+          <!-- <a href="#">忘记密码</a>
+          <a href="#">注册</a> -->
+        </div>
+      </div>
+    </section>
+    <!-- https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"></script>
+    <script>
+      var scene = document.getElementById("scene");
+      var parallax = new Parallax(scene);
+
+      const login = document.querySelector('.login');
+const layers = document.querySelectorAll('.layer img');
+
+login.addEventListener('mouseenter', function() {
+  // 在鼠标进入登录框时修改layer中img的属性或样式
+  layers.forEach(layer => {
+    // 示例: 修改图片的src属性
+    layer.src = './assets/loginchange.png';
+  });
+});
+
+login.addEventListener('mouseleave', function() {
+ 
+    // 示例: 还原图片的src属性
+    layers.forEach(layer=>{  layer.src = './assets/lavender.png';})
+    
+});
+
+//       function changeBackground(isHovered) {
+//   var scene = document.getElementById("scene");
+
+//   if (isHovered) {
+//     scene.classList.add("hovered");
+
+//   } else {
+//     scene.classList.remove("hovered");
+//   }
+// }
+document.getElementById("btn").addEventListener("click", function() {
+  window.location.href = "home.html";
+});
+    </script>
+  </body>
+  <style>
+    .login{
+  transition: transform 0.6s ease-in-out, background-image 0.6s ease-in-out;
+}
+    .login:hover {
+  transform: scale(1.1);
+  background-color: #bbded6; 
+
+}
+
+#scene.hovered {
+  /* 鼠标进入登录框内时的背景样式 */
+  background-image: url(./assets/moon.png);
+}
+
+  </style>
+</html>
